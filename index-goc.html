@@ -1,0 +1,3315 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LTN - Danh sách vật dụng</title>
+<meta name="description" content="LTN - Danh sách vật dụng, quản lý và theo dõi đồ vật theo từng phòng trong nhà. Lưu trữ hình ảnh, lịch sử thay đổi và thùng rác phục hồi dữ liệu.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ltn8128.netlify.app/">
+<meta property="og:title" content="LTN - Danh sách vật dụng">
+<meta property="og:description" content="Danh sách vật dụng, quản lý và theo dõi đồ vật theo từng phòng trong nhà.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ltn8128.netlify.app/">
+<link rel="icon" id="appFavicon" type="image/png" href="data:image/png;base64,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">
+<style>
+  :root {
+    /* ---- Design tokens ------------------------------------------------ */
+    --c-bg:        #f2f3f6;
+    --c-surface:   #ffffff;
+    --c-surface-2: #fafafb;
+    --c-surface-3: #f4f4f7;
+    --c-border:    #e3e4e9;
+    --c-border-2:  #ececef;
+    --c-ink:       #14151a;
+    --c-ink-soft:  #52545c;
+    --c-ink-mute:  #93959e;
+    --c-accent:    #2f6fed;
+    --c-accent-ink:#1c4fbd;
+    --c-accent-bg: #eaf1ff;
+    --c-danger:    #c0392b;
+    --c-danger-bg: #fdecea;
+    --c-success:   #1e8e5a;
+    --c-success-bg:#e8f6ee;
+    --c-warn:      #b8860b;
+    --c-warn-bg:   #fff6e0;
+
+    --r-sm: 8px;
+    --r-md: 10px;
+    --r-lg: 14px;
+    --r-xl: 18px;
+
+    --sh-1: 0 1px 2px rgba(20,21,26,0.05), 0 1px 1px rgba(20,21,26,0.03);
+    --sh-2: 0 4px 16px rgba(20,21,26,0.08);
+    --sh-3: 0 12px 40px rgba(20,21,26,0.16);
+
+    --sp-1: 4px;
+    --sp-2: 8px;
+    --sp-3: 12px;
+    --sp-4: 16px;
+    --sp-5: 20px;
+    --sp-6: 24px;
+    --sp-7: 32px;
+
+    --font-mono: "SFMono-Regular", Consolas, "Roboto Mono", monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--c-bg);
+    color: var(--c-ink);
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ============================= HEADER =============================== */
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 12px 28px;
+    border-bottom: 1px solid var(--c-border);
+    background: var(--c-surface);
+    position: relative;
+    z-index: 20;
+  }
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-width: 0;
+    justify-self: start;
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+    justify-self: end;
+  }
+  .logo {
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    flex: 0 0 auto;
+    color: var(--c-surface);
+    background: var(--c-ink);
+    padding: 7px 12px;
+    border-radius: var(--r-sm);
+    line-height: 1;
+  }
+  .search {
+    flex: 0 1 340px;
+    width: 340px;
+    max-width: 340px;
+    margin: 0;
+    position: relative;
+    justify-self: center;
+  }
+  .search input {
+    width: 100%;
+    padding: 9px 40px 9px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--c-border);
+    background: var(--c-surface-3);
+    font-size: 14px;
+    outline: none;
+    transition: border-color .15s ease, background .15s ease, box-shadow .15s ease;
+  }
+  .search input:focus { border-color: var(--c-accent); background: var(--c-surface); box-shadow: 0 0 0 3px var(--c-accent-bg); }
+  .search span.icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--c-ink-mute);
+    pointer-events: none;
+    font-size: 14px;
+  }
+  .suggest {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: 12px;
+    box-shadow: var(--sh-3);
+    max-height: 320px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    display: none;
+  }
+  .suggest.open { display: block; }
+  .suggest-item {
+    padding: 10px 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--c-border-2);
+  }
+  .suggest-item:first-child { border-top: none; }
+  .suggest-item:hover { background: var(--c-surface-3); }
+  .suggest-item.active { background: var(--c-accent-bg); }
+  .suggest-item .s-name { font-weight: 600; font-size: 14px; }
+  .suggest-item .s-meta { font-size: 12px; color: var(--c-ink-mute); }
+  .suggest-empty { padding: 14px 16px; font-size: 13px; color: var(--c-ink-mute); }
+  .suggest-item .s-left { display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .suggest-item .s-thumb {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: var(--c-surface-3);
+    border: 1px solid var(--c-border-2);
+  }
+  .suggest-item .s-thumb.empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #ccc;
+  }
+  .copy-toast {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    background: var(--c-ink);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-4px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    z-index: 5;
+  }
+  .copy-toast.show { opacity: 1; transform: translateY(0); }
+  .badge {
+    background: var(--c-surface-3);
+    border: 1px solid var(--c-border);
+    color: var(--c-ink-soft);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    letter-spacing: .2px;
+  }
+  .header-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+    color: var(--c-ink-soft);
+    padding-left: 14px;
+    border-left: 1px solid var(--c-border);
+  }
+  .weather-widget {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .weather-widget .w-icon { font-size: 17px; line-height: 1; }
+  .weather-widget .w-temp { font-weight: 700; font-size: 13px; color: var(--c-ink); }
+  .weather-widget .w-place {
+    color: var(--c-ink-mute);
+    font-size: 12px;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .weather-widget .w-place:not(:empty)::before { content: "· "; }
+  .clock-widget {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    padding: 4px 10px;
+    border-radius: 8px;
+    background: var(--c-surface-3);
+    transition: background .15s ease, color .15s ease;
+  }
+  .clock-widget .clk-cs { font-size: 11px; font-weight: 600; color: var(--c-ink-mute); }
+  .clock-widget.clk-blink {
+    animation: clkBlink 1s steps(1, end) infinite;
+  }
+  .clock-widget.clk-blink .clk-cs { color: inherit; }
+  @keyframes clkBlink {
+    0%, 49% { background: #fde3e1; color: #b3271d; }
+    50%, 100% { background: var(--c-surface-3); color: var(--c-ink); }
+  }
+  .date-widget {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 1.3;
+    white-space: nowrap;
+    font-size: 12px;
+    color: var(--c-ink-soft);
+    padding-right: 14px;
+    margin-right: 2px;
+    border-right: 1px solid var(--c-border);
+  }
+  .date-widget .dw-solar { font-size: 13px; font-weight: 700; color: var(--c-ink); }
+  .date-widget .dw-lunar { font-size: 11px; color: var(--c-ink-mute); }
+
+  /* ============================ BODY LAYOUT ============================ */
+  .body-layout {
+    display: flex;
+    align-items: stretch;
+    flex: 1;
+    min-height: 0;
+  }
+
+  /* -- Left nav rail -- */
+  .rail-wrap {
+    width: 16px;
+    align-self: stretch;
+    position: relative;
+    min-height: 0;
+    transition: width .2s ease;
+  }
+  .rail-wrap.pinned { width: 76px; }
+  .rail {
+    width: 76px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: var(--c-surface);
+    border-right: 1px solid var(--c-border);
+    box-shadow: 2px 0 14px rgba(20,21,26,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 22px;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: visible;
+    transform: translateX(-100%);
+    transition: transform .2s ease, box-shadow .2s ease;
+    z-index: 20;
+  }
+  .rail-wrap:hover .rail,
+  .rail-wrap.pinned .rail {
+    transform: translateX(0);
+  }
+  .rail-wrap.pinned .rail { box-shadow: none; }
+  .rail-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid var(--c-border);
+    background: var(--c-surface);
+    font-size: 19px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--c-ink-soft);
+    transition: border-color .15s ease, background .15s ease, color .15s ease, transform .09s ease-out;
+    transform-origin: center;
+    will-change: transform;
+    flex-shrink: 0;
+  }
+  .rail-btn:hover { border-color: var(--c-accent); color: var(--c-accent); }
+  .rail-btn.active { background: var(--c-ink); color: #fff; border-color: var(--c-ink); }
+  .rail-label {
+    font-size: 10px;
+    color: var(--c-ink-mute);
+    margin-top: -8px;
+    text-align: center;
+  }
+
+  /* -- Main working area -- */
+  .layout {
+    display: flex;
+    gap: 22px;
+    padding: 28px;
+    align-items: stretch;
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+  }
+  .top-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .copy-preview-bar {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-sm);
+    padding: 9px 16px;
+    font-size: 13px;
+    color: var(--c-ink-mute);
+    box-shadow: var(--sh-1);
+  }
+  .copy-preview-bar.has-content { color: var(--c-ink); border-color: var(--c-accent); background: var(--c-accent-bg); }
+  .copy-preview-bar .cpb-label {
+    font-weight: 700;
+    color: var(--c-ink);
+    flex-shrink: 0;
+  }
+  .copy-preview-bar .cpb-content {
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .copy-preview-bar .cpb-clear {
+    flex-shrink: 0;
+    border: none;
+    background: none;
+    color: var(--c-danger);
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 2px 6px;
+    display: none;
+  }
+  .copy-preview-bar.has-content .cpb-clear { display: inline-block; }
+  .history-btn {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-sm);
+    padding: 9px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--c-ink-soft);
+    transition: border-color .15s ease, color .15s ease, background .15s ease;
+  }
+  .history-btn:hover { border-color: var(--c-ink); color: var(--c-ink); }
+  .history-btn.active { background: var(--c-ink); color: #fff; border-color: var(--c-ink); }
+  .main-col { flex: 1; display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+  .side-col { width: 300px; flex-shrink: 0; display: flex; flex-direction: column; min-height: 0; gap: 20px; }
+
+  /* -- Cards -- */
+  .card {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-lg);
+    padding: 26px 30px;
+    box-shadow: var(--sh-1);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow-y: auto;
+  }
+  .card h1 {
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: .2px;
+    margin: 0 0 22px 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--c-border-2);
+    flex-shrink: 0;
+  }
+
+  /* -- Form -- */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 24px;
+  }
+  .field { display: flex; flex-direction: column; gap: 7px; }
+  .field.full { grid-column: 1 / -1; }
+  label {
+    font-weight: 700;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--c-ink-soft);
+  }
+  label .optional { font-weight: 500; color: var(--c-danger); font-size: 11px; text-transform: none; letter-spacing: normal; }
+  input[type=text], .file-input {
+    padding: 11px 14px;
+    border-radius: var(--r-md);
+    border: 1px solid var(--c-border);
+    background: var(--c-surface-3);
+    font-size: 14px;
+    color: var(--c-ink);
+    outline: none;
+    width: 100%;
+    font-family: inherit;
+    transition: border-color .15s ease, background .15s ease, box-shadow .15s ease;
+  }
+  input[type=text]:focus { border-color: var(--c-accent); background: var(--c-surface); box-shadow: 0 0 0 3px var(--c-accent-bg); }
+  input[type=text]::placeholder { color: var(--c-ink-mute); }
+  .picture-box {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 48px;
+    color: var(--c-ink-mute);
+    border-style: dashed;
+    transition: border-color .15s ease, background .15s ease, box-shadow .15s ease;
+  }
+  .picture-box:focus { outline: none; border-color: var(--c-accent); background: var(--c-surface); box-shadow: 0 0 0 3px var(--c-accent-bg); }
+  .picture-box.dragover {
+    border-color: var(--c-accent);
+    border-style: solid;
+    background: var(--c-accent-bg);
+    box-shadow: 0 0 0 3px var(--c-accent-bg);
+  }
+  .picture-box img {
+    max-height: 110px;
+    max-width: 100%;
+    border-radius: 8px;
+    display: none;
+    background: #fff;
+  }
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 26px;
+    padding-top: 20px;
+    border-top: 1px solid var(--c-border-2);
+    flex-shrink: 0;
+  }
+  .btn-clear {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    color: var(--c-danger);
+    font-weight: 600;
+    font-size: 13.5px;
+    padding: 11px 20px;
+    border-radius: var(--r-md);
+    cursor: pointer;
+    transition: background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .btn-clear:hover { background: var(--c-danger); color: #fff; border-color: var(--c-danger); }
+  .btn-save {
+    background: var(--c-ink);
+    color: #fff;
+    border: 1px solid var(--c-ink);
+    font-weight: 700;
+    font-size: 13.5px;
+    padding: 11px 22px;
+    border-radius: var(--r-md);
+    cursor: pointer;
+    transition: background .15s ease, opacity .15s ease;
+  }
+  .btn-save:hover { background: var(--c-accent-ink); border-color: var(--c-accent-ink); }
+
+  /* -- Preview + Recent side cards -- */
+  .preview-card {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-lg);
+    padding: 18px;
+    flex-shrink: 0;
+    box-shadow: var(--sh-1);
+  }
+  .preview-img {
+    background: var(--c-surface-3);
+    border: 1px dashed var(--c-border);
+    border-radius: var(--r-md);
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--c-ink-mute);
+    font-size: 13px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    padding: 0;
+  }
+  .preview-img img {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: zoom-in;
+    background: #fff;
+  }
+  .preview-card h3 {
+    margin: 0 0 10px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--c-border-2);
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .pv-ipa { font-size: 13px; font-weight: 400; font-style: italic; color: var(--c-ink-mute); }
+  .pv-ipa.loading { color: #bbb; }
+  .pv-ipa-link-btn {
+    font-size: 11px;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--c-ink-soft);
+    background: var(--c-surface-3);
+    border: 1px solid var(--c-border);
+    border-radius: 999px;
+    padding: 3px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .15s ease, color .15s ease;
+  }
+  .pv-ipa-link-btn:hover { background: var(--c-ink); color: #fff; border-color: var(--c-ink); }
+  .preview-card p { margin: 3px 0; font-size: 13px; color: var(--c-ink-soft); }
+  .recent-card {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-lg);
+    padding: 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+    box-shadow: var(--sh-1);
+  }
+  .recent-card h3 {
+    margin: 0 0 12px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--c-border-2);
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  #recentList { flex: 1; overflow-y: auto; min-height: 0; }
+  .recent-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 4px;
+    border-radius: var(--r-sm);
+    border-top: 1px solid var(--c-border-2);
+    cursor: pointer;
+    transition: background .12s ease;
+  }
+  .recent-item:hover { background: var(--c-surface-3); }
+  .recent-item:first-of-type { border-top: none; }
+  .recent-item .name { font-weight: 700; font-size: 14px; }
+  .recent-item .meta { font-size: 12px; color: var(--c-ink-mute); margin-top: 2px; }
+  .recent-item .num { font-size: 12px; color: var(--c-ink-mute); }
+
+  /* ============================ VIEWS =================================== */
+  .view { display: none; flex-direction: column; }
+  .view.active { display: flex; flex: 1; min-height: 0; }
+  .catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .catalog-card {
+    background: var(--c-surface);
+    border-radius: var(--r-lg);
+    padding: 18px;
+    box-shadow: var(--sh-1);
+    border: 2px solid transparent;
+    transition: border-color .2s ease;
+  }
+  .catalog-card.highlight { border-color: var(--c-ink); }
+  .catalog-card .thumb {
+    background: var(--c-surface-3);
+    border-radius: var(--r-md);
+    height: 100px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bbb;
+    font-size: 12px;
+  }
+  .catalog-card h4 { margin: 0 0 6px 0; font-size: 15px; }
+  .catalog-card p { margin: 2px 0; font-size: 12px; color: var(--c-ink-soft); }
+
+  .catalog-head-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--c-border-2);
+    flex-shrink: 0;
+  }
+  .catalog-head-row h1 { margin: 0; padding: 0; border: none; }
+  .reset-copy {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--c-ink-soft);
+    cursor: pointer;
+    user-select: none;
+  }
+  .reset-copy input[type=checkbox] {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+    accent-color: var(--c-ink);
+  }
+
+  /* -- Room > Item > Entry hierarchy: styled like a structured data table -- */
+  .room-list { display: flex; flex-direction: column; gap: 10px; flex: 1; overflow-y: auto; min-height: 0; }
+  .room-group {
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .room-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 18px;
+    cursor: pointer;
+    background: var(--c-surface-2);
+    border-left: 3px solid var(--c-ink);
+  }
+  .room-header:hover { background: var(--c-surface-3); }
+  .room-header .room-name { font-weight: 700; font-size: 14.5px; letter-spacing: .1px; }
+  .room-header .room-count {
+    font-size: 11px;
+    color: var(--c-ink-soft);
+    margin-left: 10px;
+    font-weight: 700;
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    padding: 1px 8px;
+    border-radius: 999px;
+  }
+  .room-toggle {
+    border: none;
+    background: none;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--c-ink-soft);
+    transition: transform .2s ease;
+    display: inline-block;
+  }
+  .room-toggle.open { transform: rotate(90deg); }
+  .room-rows { display: none; }
+  .room-rows.open { display: block; }
+  .item-group {
+    border-top: 1px solid var(--c-border-2);
+  }
+  .item-group:first-child { border-top: none; }
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 18px 10px 34px;
+    cursor: pointer;
+    background: var(--c-surface);
+    border-left: 3px solid var(--c-border);
+  }
+  .item-header:hover { background: var(--c-surface-2); }
+  .item-header .item-name { font-weight: 600; font-size: 13.5px; }
+  .item-header .item-count { font-size: 11px; color: var(--c-ink-mute); margin-left: 8px; font-weight: 500; }
+  .inline-rename-input {
+    font: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    color: var(--c-ink);
+    background: var(--c-surface);
+    border: 1px solid var(--c-ink);
+    border-radius: 6px;
+    padding: 1px 6px;
+    outline: none;
+    min-width: 60px;
+    max-width: 260px;
+  }
+  .item-toggle {
+    border: none;
+    background: none;
+    font-size: 11px;
+    cursor: pointer;
+    color: var(--c-ink-mute);
+    transition: transform .2s ease;
+    display: inline-block;
+  }
+  .item-toggle.open { transform: rotate(90deg); }
+  .item-rows { display: none; }
+  .item-rows.open { display: block; }
+  .entry-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 18px 9px 52px;
+    border-top: 1px solid var(--c-border-2);
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    transition: background .12s ease;
+  }
+  .entry-row:hover { background: var(--c-surface-2); }
+  .entry-row .row-text { font-size: 13px; color: var(--c-ink); cursor: pointer; }
+  .entry-row.highlight-row { box-shadow: inset 0 0 0 1px var(--c-ink); background: var(--c-surface); border-left-color: var(--c-ink); }
+  .entry-row.selected { background: var(--c-warn-bg); border-left-color: var(--c-warn); }
+  .entry-row.selected:hover { background: var(--c-warn-bg); }
+  .delete-btn {
+    flex-shrink: 0;
+    border: 1px solid var(--c-border);
+    background: var(--c-surface);
+    border-radius: var(--r-sm);
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c-danger);
+    cursor: pointer;
+    transition: background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .delete-btn:hover { background: var(--c-danger); color: #fff; border-color: var(--c-danger); }
+  .copy-btn {
+    flex-shrink: 0;
+    border: 1px solid var(--c-border);
+    background: var(--c-surface);
+    border-radius: var(--r-sm);
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c-ink-soft);
+    cursor: pointer;
+    transition: background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .copy-btn:hover { background: var(--c-ink); color: #fff; border-color: var(--c-ink); }
+  .delete-room-btn, .delete-item-btn {
+    flex-shrink: 0;
+    border: 1px solid var(--c-border);
+    background: var(--c-surface);
+    border-radius: var(--r-sm);
+    padding: 5px 11px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c-danger);
+    cursor: pointer;
+    transition: background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .delete-room-btn:hover, .delete-item-btn:hover { background: var(--c-danger); color: #fff; border-color: var(--c-danger); }
+  .row-actions { display: flex; gap: 8px; flex-shrink: 0; }
+
+  /* ============================ LOGIN =================================== */
+  .login-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: var(--c-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .login-overlay.hidden { display: none; }
+  .login-box {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-xl);
+    padding: 40px 36px;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: var(--sh-3);
+    text-align: center;
+  }
+  .login-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--r-md);
+    margin: 0 auto 14px auto;
+    display: block;
+    object-fit: cover;
+  }
+  .login-box h2 {
+    margin: 0 0 24px 0;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+  }
+  .login-field { text-align: left; margin-bottom: 16px; }
+  .login-field label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--c-ink-soft);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+  .login-field input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: var(--r-md);
+    border: 1px solid var(--c-border);
+    background: var(--c-surface-3);
+    font-size: 14px;
+    outline: none;
+    transition: border-color .15s ease, background .15s ease, box-shadow .15s ease;
+  }
+  .login-field input:focus { border-color: var(--c-accent); background: var(--c-surface); box-shadow: 0 0 0 3px var(--c-accent-bg); }
+  .login-error {
+    color: var(--c-danger);
+    font-size: 13px;
+    min-height: 18px;
+    margin-bottom: 8px;
+  }
+  .login-submit {
+    width: 100%;
+    padding: 11px;
+    border-radius: var(--r-md);
+    border: none;
+    background: var(--c-ink);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 4px;
+    transition: background .15s ease;
+  }
+  .login-submit:hover { background: var(--c-accent-ink); }
+  .logout-btn {
+    border: 1px solid var(--c-border);
+    background: var(--c-surface);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--c-ink-soft);
+    margin-left: 8px;
+    transition: border-color .15s ease, color .15s ease;
+  }
+  .logout-btn:hover { border-color: var(--c-danger); color: var(--c-danger); }
+  .app-root {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    height: 100%;
+  }
+  .app-root.hidden { display: none; }
+  .sync-status {
+    font-size: 11px;
+    color: var(--c-ink-mute);
+    margin-left: 6px;
+    font-weight: 600;
+  }
+
+  /* ============================ HISTORY =================================== */
+  .history-list { display: flex; flex-direction: column; flex: 1; overflow-y: auto; min-height: 0; }
+  .history-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 13px 6px;
+    border-bottom: 1px solid var(--c-border-2);
+    border-radius: var(--r-sm);
+    transition: background .12s ease;
+  }
+  .history-row:hover { background: var(--c-surface-2); }
+  .history-row:last-child { border-bottom: none; }
+  .history-num {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--c-ink);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .history-info { flex: 1; }
+  .history-info .name { font-weight: 700; font-size: 14px; }
+  .history-info .meta { font-size: 12px; color: var(--c-ink-mute); margin-top: 2px; }
+  .history-time { font-size: 12px; color: var(--c-ink-mute); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  /* ============================ TRASH / RAIL EXTRAS ======================= */
+  .rail-btn.trash-btn { margin-top: auto; position: relative; }
+  .rail-btn.settings-btn { margin-bottom: 22px; }
+
+  /* ============================ SETTINGS =================================== */
+  .settings-block { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--c-border-2); }
+  .settings-block:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .settings-title { font-weight: 700; font-size: 14.5px; }
+  .settings-desc { color: var(--c-ink-mute); font-size: 13px; margin: 4px 0 14px 0; }
+  .magnify-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    max-width: 340px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--c-border);
+    outline: none;
+    cursor: pointer;
+  }
+  .magnify-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--c-accent);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+  .magnify-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--c-accent);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+  .magnify-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    max-width: 340px;
+    font-size: 12px;
+    color: var(--c-ink-mute);
+    margin-top: 6px;
+  }
+  .trash-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: 9px;
+    background: var(--c-danger);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  .trash-list { display: flex; flex-direction: column; flex: 1; overflow-y: auto; min-height: 0; }
+  .trash-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 13px 6px;
+    border-bottom: 1px solid var(--c-border-2);
+    border-radius: var(--r-sm);
+    transition: background .12s ease;
+  }
+  .trash-row:hover { background: var(--c-surface-2); }
+  .trash-row:last-child { border-bottom: none; }
+  .trash-info { flex: 1; min-width: 0; }
+  .trash-info .name { font-weight: 700; font-size: 14px; }
+  .trash-info .meta { font-size: 12px; color: var(--c-ink-mute); margin-top: 2px; }
+  .restore-btn {
+    flex-shrink: 0;
+    border: 1px solid var(--c-border);
+    background: var(--c-surface);
+    border-radius: var(--r-sm);
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c-success);
+    cursor: pointer;
+    transition: background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .restore-btn:hover { background: var(--c-success); color: #fff; border-color: var(--c-success); }
+
+  /* ============================ LIGHTBOX / MODAL =========================== */
+  .lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,10,14,0.88);
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    cursor: zoom-out;
+    padding: 24px;
+  }
+  .lightbox-overlay.open { display: flex; overflow: hidden; }
+  .lightbox-overlay img {
+    max-width: 92vw;
+    max-height: 92vh;
+    border-radius: var(--r-md);
+    box-shadow: var(--sh-3);
+    background: #fff;
+    transform-origin: center center;
+    transition: transform .08s ease-out;
+    will-change: transform;
+  }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,10,14,0.45);
+    align-items: center;
+    justify-content: center;
+    z-index: 998;
+    padding: 24px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: var(--c-surface);
+    border-radius: var(--r-lg);
+    padding: 28px 32px;
+    width: 600px;
+    max-width: 92vw;
+    max-height: 88vh;
+    overflow-y: auto;
+    box-shadow: var(--sh-3);
+  }
+  .modal-box h2 {
+    margin: 0 0 20px 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--c-border-2);
+    font-size: 19px;
+    font-weight: 800;
+  }
+
+  /* ============================ SCROLLBARS ================================= */
+  .card::-webkit-scrollbar, .rail::-webkit-scrollbar, #recentList::-webkit-scrollbar,
+  .room-list::-webkit-scrollbar, .history-list::-webkit-scrollbar, .trash-list::-webkit-scrollbar,
+  .modal-box::-webkit-scrollbar {
+    width: 8px;
+  }
+  .card::-webkit-scrollbar-thumb, #recentList::-webkit-scrollbar-thumb,
+  .room-list::-webkit-scrollbar-thumb, .history-list::-webkit-scrollbar-thumb,
+  .trash-list::-webkit-scrollbar-thumb, .modal-box::-webkit-scrollbar-thumb {
+    background: var(--c-border);
+    border-radius: 999px;
+  }
+  .card::-webkit-scrollbar-track, #recentList::-webkit-scrollbar-track,
+  .room-list::-webkit-scrollbar-track, .history-list::-webkit-scrollbar-track,
+  .trash-list::-webkit-scrollbar-track, .modal-box::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* ============================ RESPONSIVE ================================= */
+  @media (max-width: 1080px) {
+    .side-col { width: 260px; }
+    .layout { gap: 16px; padding: 20px; }
+  }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+</head>
+<body>
+
+<!-- LOGIN OVERLAY -->
+<div class="login-overlay" id="loginOverlay">
+  <div class="login-box">
+    <img class="login-logo" id="loginLogoImg" alt="Logo">
+    <h2>Đăng nhập LTN</h2>
+    <form id="loginForm">
+      <div class="login-field">
+        <label>Tài khoản</label>
+        <input type="email" id="loginEmail" placeholder="Email..." autocomplete="username" required>
+      </div>
+      <div class="login-field">
+        <label>Mật khẩu</label>
+        <input type="password" id="loginPassword" placeholder="Mật khẩu..." autocomplete="current-password" required>
+      </div>
+      <div class="login-error" id="loginError"></div>
+      <button type="submit" class="login-submit">Đăng nhập</button>
+    </form>
+  </div>
+</div>
+
+<div class="app-root hidden" id="appRoot">
+<datalist id="roomOptions"></datalist>
+<datalist id="itemOptionsF"></datalist>
+<datalist id="itemOptionsE"></datalist>
+<datalist id="attributeOptions"></datalist>
+<datalist id="nameOptions"></datalist>
+<header>
+  <div class="header-left">
+    <div class="logo">LTN</div>
+    <div class="header-info">
+      <div class="weather-widget" id="weatherWidget" title="Thời tiết khu vực hiện tại">
+        <span class="w-icon" id="weatherIcon">⛅</span>
+        <span class="w-temp" id="weatherTemp">--°C</span>
+        <span class="w-place" id="weatherPlace"></span>
+      </div>
+      <div class="clock-widget" id="clockWidget">--:--:--<span class="clk-cs">.--</span></div>
+    </div>
+  </div>
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="Tìm kiếm..." autocomplete="off">
+    <div class="copy-toast" id="copyToast"></div>
+    <span class="icon">&#128269;</span>
+    <div class="suggest" id="suggestBox"></div>
+  </div>
+  <div class="header-right">
+    <div class="date-widget" id="dateWidget" title="Lịch dương / Lịch âm">
+      <span class="dw-solar" id="dwSolar">--/--/----</span>
+      <span class="dw-lunar" id="dwLunar">Âm lịch: --/--</span>
+    </div>
+    <div class="badge" id="countBadge">0 bản ghi</div>
+    <span class="sync-status" id="syncStatus"></span>
+    <button class="logout-btn" id="logoutBtn" title="Đăng xuất">Đăng xuất</button>
+  </div>
+</header>
+ 
+<div class="body-layout">
+  <nav class="rail-wrap" id="railWrap">
+    <div class="rail">
+      <button class="rail-btn active" id="railAdd" title="Thêm bản ghi mới">+</button>
+      <button class="rail-btn" id="railCatalog" title="Tổng hợp tất cả">&#128214;</button>
+      <button class="rail-btn trash-btn" id="railTrash" title="Thùng rác">&#128465;<span class="trash-badge" id="trashBadge"></span></button>
+      <button class="rail-btn settings-btn" id="railSettings" title="Cài đặt">&#9881;</button>
+    </div>
+  </nav>
+ 
+  <div class="layout">
+    <div class="main-col">
+      <div class="top-row">
+        <div class="copy-preview-bar" id="copyPreviewBar">
+          <span class="cpb-label">Đã copy:</span>
+          <span class="cpb-content" id="copyPreviewContent">Chưa copy gì</span>
+          <button class="cpb-clear" id="copyPreviewClear" title="Xóa danh sách đã copy">Xóa</button>
+        </div>
+        <button class="history-btn" id="historyBtn">History</button>
+      </div>
+ 
+      <!-- FORM VIEW -->
+      <div class="view active" id="view-form">
+        <div class="card">
+          <h1>Item Information</h1>
+          <div class="grid">
+            <div class="field">
+              <label>Room</label>
+              <input type="text" id="fRoom" placeholder="Nhập Room..." list="roomOptions" autocomplete="off">
+            </div>
+            <div class="field">
+              <label>Item</label>
+              <input type="text" id="fItem" placeholder="Nhập Item..." list="itemOptionsF" autocomplete="off">
+            </div>
+            <div class="field">
+              <label>Attribute <span class="optional">(không bắt buộc)</span></label>
+              <input type="text" id="fAttribute" placeholder="Có thể để trống..." list="attributeOptions" autocomplete="off">
+            </div>
+            <div class="field">
+              <label>Name</label>
+              <input type="text" id="fName" placeholder="Nhập Name..." list="nameOptions" autocomplete="off">
+            </div>
+            <div class="field full">
+              <label>Picture</label>
+              <div class="file-input picture-box" id="fPictureBox" tabindex="0">
+                <span id="pictureBoxText">Click vào đây, dán ảnh (Ctrl+V) hoặc kéo-thả ảnh vào đây...</span>
+                <img id="pictureBoxImg" alt="Ảnh đã dán">
+              </div>
+            </div>
+          </div>
+          <div class="actions">
+            <button class="btn-clear" id="clearBtn">Xóa form</button>
+            <button class="btn-save" id="saveBtn">Lưu bản ghi</button>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- CATALOG VIEW -->
+      <div class="view" id="view-catalog">
+        <div class="card">
+          <div class="catalog-head-row">
+            <h1>Tổng hợp tất cả bản ghi</h1>
+            <div style="display:flex; align-items:center; gap:16px;">
+              <button class="btn-clear" id="collapseAllBtn" title="Thu gọn toàn bộ Room/Item đang mở">Thu gọn</button>
+              <label class="reset-copy" title="Khởi động lại danh sách Name đã copy">
+                <input type="checkbox" id="resetCopyChk">
+                Reset copy
+              </label>
+            </div>
+          </div>
+          <div class="room-list" id="roomList"></div>
+        </div>
+      </div>
+ 
+      <!-- TRASH VIEW -->
+      <div class="view" id="view-trash">
+        <div class="card">
+          <div class="catalog-head-row">
+            <h1>Thùng rác</h1>
+            <button class="btn-clear" id="emptyTrashBtn">Dọn thùng rác</button>
+          </div>
+          <p style="color:#999; font-size:13px; margin:-14px 0 16px 0;">Mục đã xóa được giữ ở đây 7 ngày để khôi phục, sau đó sẽ tự động bị xóa vĩnh viễn.</p>
+          <div class="trash-list" id="trashList"></div>
+        </div>
+      </div>
+
+      <!-- SETTINGS VIEW -->
+      <div class="view" id="view-settings">
+        <div class="card">
+          <div class="catalog-head-row">
+            <h1>Cài đặt</h1>
+          </div>
+
+          <div class="settings-block">
+            <label class="reset-copy" title="Khi bật, thanh điều hướng bên trái sẽ tự ẩn và chỉ hiện ra khi di chuột vào">
+              <input type="checkbox" id="autoHideRailChk">
+              Tự động ẩn thanh điều hướng (chỉ hiện khi di chuột vào)
+            </label>
+          </div>
+
+          <div class="settings-block">
+            <div class="settings-title">Magnification</div>
+            <p class="settings-desc">Mọi nút bấm/liên kết trong ứng dụng to dần khi rê chuột lại gần, giống Dock trên macOS</p>
+            <input type="range" id="magnifyRange" class="magnify-slider" min="0" max="100" step="1" value="0">
+            <div class="magnify-slider-labels">
+              <span>Off</span>
+              <span id="magnifyValueLabel">Off</span>
+              <span>Max</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HISTORY VIEW -->
+      <div class="view" id="view-history">
+        <div class="card">
+          <div class="catalog-head-row">
+            <h1>History</h1>
+            <button class="btn-clear" id="migratePicturesBtn" title="Chuyển các ảnh base64 cũ (còn nằm trong database) sang Supabase Storage, chỉ cần bấm 1 lần">Di dời ảnh cũ lên Storage</button>
+          </div>
+          <div class="history-list" id="historyList"></div>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="side-col">
+      <div class="preview-card" id="previewCard">
+        <div class="preview-img" id="previewImg" title="Nhấp để xem ảnh cỡ lớn">
+          <img id="previewImgTag" alt="Ảnh xem trước">
+          <span id="previewImgPlaceholder">Preview Picture</span>
+        </div>
+        <h3 id="pvName"><span id="pvNameText">Chưa có Name</span><span id="pvIpa" class="pv-ipa"></span><button type="button" id="pvIpaLinkBtn" class="pv-ipa-link-btn" title="Copy tên và mở toPhonetics để tự đối chiếu phiên âm">Tra toPhonetics ↗</button></h3>
+        <p id="pvRoom">Room: —</p>
+        <p id="pvItem">Item: —</p>
+        <p id="pvAttribute">Attribute: —</p>
+      </div>
+ 
+      <div class="recent-card">
+        <h3>Đã lưu gần đây</h3>
+        <div id="recentList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox: click a picture to view it full-size -->
+<div class="lightbox-overlay" id="lightboxOverlay">
+  <img id="lightboxImg" alt="Ảnh phóng to">
+</div>
+
+<!-- Edit modal: double-click a catalog entry to edit its info/picture -->
+<div class="modal-overlay" id="editOverlay">
+  <div class="modal-box">
+    <h2>Sửa bản ghi</h2>
+    <div class="grid">
+      <div class="field">
+        <label>Room</label>
+        <input type="text" id="eRoom" placeholder="Nhập Room..." list="roomOptions" autocomplete="off">
+      </div>
+      <div class="field">
+        <label>Item</label>
+        <input type="text" id="eItem" placeholder="Nhập Item..." list="itemOptionsE" autocomplete="off">
+      </div>
+      <div class="field">
+        <label>Attribute <span class="optional">(không bắt buộc)</span></label>
+        <input type="text" id="eAttribute" placeholder="Có thể để trống..." list="attributeOptions" autocomplete="off">
+      </div>
+      <div class="field">
+        <label>Name</label>
+        <input type="text" id="eName" placeholder="Nhập Name..." list="nameOptions" autocomplete="off">
+      </div>
+      <div class="field full">
+        <label>Picture</label>
+        <div class="file-input picture-box" id="ePictureBox" tabindex="0">
+          <span id="ePictureBoxText">Click vào đây, dán ảnh (Ctrl+V) hoặc kéo-thả ảnh vào đây...</span>
+          <img id="ePictureBoxImg" alt="Ảnh đã dán">
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn-clear" id="editCancelBtn">Hủy</button>
+      <button class="btn-save" id="editSaveBtn">Lưu thay đổi</button>
+    </div>
+  </div>
+</div>
+</div>
+ 
+<script>
+  // ==== LTN – Công cụ tìm kiếm dùng chung (giống hệt logic trong extension) ====
+  // Mục tiêu: gõ bất kỳ từ nào thuộc Item, Attribute, Name hay Room (theo bất kỳ
+  // thứ tự, cách nhau bởi khoảng trắng) đều ra kết quả. Ví dụ với 1 món đồ có
+  // item = "Đĩa", attribute = "Nhựa": gõ "đĩa", "nhựa", "đĩa nhựa", "nhựa đĩa"
+  // hay thậm chí "plastic plate" (tiếng Anh, nhờ từ điển đồng nghĩa bên dưới)
+  // đều khớp.
+  const LtnSearchMatch = (function () {
+    // Bỏ dấu tiếng Việt + chuẩn hoá chữ thường, dùng để so khớp không phân biệt dấu/hoa-thường
+    function normalizeText(s) {
+      return String(s == null ? '' : s)
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/đ/g, 'd')
+        .trim();
+    }
+
+    // Từ điển đồng nghĩa / song ngữ Việt-Anh — có thể bổ sung thêm tuỳ nhu cầu.
+    // key là 1 từ/cụm tiếng Việt, value là danh sách các từ tương đương (tiếng
+    // Anh hoặc từ đồng nghĩa tiếng Việt khác). So khớp áp dụng theo cả 2 chiều.
+    const SYNONYMS = {
+      'nhựa': ['plastic'],
+      'gỗ': ['wood', 'wooden'],
+      'kim loại': ['metal', 'metallic'],
+      'thủy tinh': ['glass'],
+      'vải': ['fabric', 'cloth', 'textile'],
+      'da': ['leather'],
+      'inox': ['stainless steel', 'steel'],
+      'giấy': ['paper'],
+      'cao su': ['rubber'],
+      'sắt': ['iron'],
+      'nhôm': ['aluminum', 'aluminium'],
+      'gốm': ['ceramic', 'pottery'],
+      'sứ': ['porcelain'],
+      'đồng': ['copper', 'brass'],
+      'đĩa': ['plate', 'disc', 'disk'],
+      'bát': ['bowl'],
+      'chén': ['bowl', 'cup'],
+      'ly': ['cup', 'glass'],
+      'cốc': ['cup', 'mug'],
+      'hộp': ['box'],
+      'túi': ['bag'],
+      'thùng': ['bin', 'box', 'barrel'],
+      'ghế': ['chair'],
+      'bàn': ['table', 'desk'],
+      'tủ': ['cabinet', 'closet', 'wardrobe'],
+      'giường': ['bed'],
+      'quần áo': ['clothes', 'clothing'],
+      'áo': ['shirt'],
+      'quần': ['pants', 'trousers'],
+      'giày': ['shoes'],
+      'dép': ['sandals', 'slippers'],
+      'sách': ['book'],
+      'bút': ['pen'],
+      'đèn': ['lamp', 'light'],
+      'quạt': ['fan'],
+      'dao': ['knife'],
+      'thìa': ['spoon'],
+      'muỗng': ['spoon'],
+      'đũa': ['chopsticks'],
+      'nồi': ['pot'],
+      'chảo': ['pan'],
+      'điện thoại': ['phone', 'mobile'],
+      'máy tính': ['computer', 'laptop'],
+      'dây': ['cable', 'wire', 'cord']
+    };
+
+    // Bảng tra cứu 2 chiều (đã normalize), dựng 1 lần duy nhất.
+    const SYNONYM_INDEX = (function () {
+      const idx = {};
+      function add(a, b) {
+        if (!idx[a]) idx[a] = new Set();
+        idx[a].add(b);
+      }
+      Object.keys(SYNONYMS).forEach((key) => {
+        const nKey = normalizeText(key);
+        add(nKey, nKey);
+        SYNONYMS[key].forEach((val) => {
+          const nVal = normalizeText(val);
+          add(nKey, nVal);
+          add(nVal, nKey);
+          add(nVal, nVal);
+        });
+      });
+      return idx;
+    })();
+
+    function expandTerm(term) {
+      const set = SYNONYM_INDEX[term];
+      return set ? Array.from(set) : [term];
+    }
+
+    function tokenize(query) {
+      return normalizeText(query).split(/\s+/).filter(Boolean);
+    }
+
+    function buildHaystack(it, fields) {
+      fields = fields || ['name', 'room', 'item', 'attribute'];
+      return normalizeText(fields.map((f) => it && it[f]).join(' '));
+    }
+
+    // true nếu item khớp TẤT CẢ token trong query — mỗi token có thể nằm ở
+    // BẤT KỲ trường nào (name/room/item/attribute), đây chính là phần "liên kết"
+    // giữa Item và Attribute, và được mở rộng qua từ điển đồng nghĩa Việt-Anh.
+    function matchesQuery(it, tokens, fields) {
+      if (!tokens.length) return false;
+      const hay = buildHaystack(it, fields);
+      return tokens.every((tok) => expandTerm(tok).some((alt) => hay.indexOf(alt) !== -1));
+    }
+
+    function search(items, query, opts) {
+      opts = opts || {};
+      const tokens = tokenize(query);
+      if (!tokens.length) return [];
+      let out = items.filter((it) => matchesQuery(it, tokens, opts.fields));
+      if (opts.limit) out = out.slice(0, opts.limit);
+      return out;
+    }
+
+    return { normalizeText, tokenize, expandTerm, matchesQuery, search };
+  })();
+
+  // ---- Data (starts empty, then loaded from synced storage) ----
+  let items = [];
+  let nextId = 1;
+  let expandedRooms = new Set();
+  let expandedItems = new Set();
+  let selectedEntryId = null;
+  let copiedNames = [];
+  let copyResetTimer = null;
+  let deletedItems = [];
+  const STORAGE_KEY = 'ltn-items-data';
+  const TRASH_STORAGE_KEY = 'ltn-trash-data';
+  const TRASH_RETENTION_MS = 7 * 24 * 60 * 60 * 1000; // 1 tuần
+
+  // ==== SUPABASE CONFIG ====
+  // Dán URL và anon key của bạn vào 2 dòng dưới đây (lấy từ Supabase >
+  // Project Settings > API). Đây là key công khai (anon/public), an toàn
+  // để đặt trong file HTML tĩnh.
+  const SUPABASE_URL = 'https://mguclogmtbcivjudpmnx.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable__i1yX-F88iRTYQ422o9MRw_Z3T6vjs3';
+
+  let supabaseClient = null;
+  try {
+    if (SUPABASE_URL.startsWith('http') && window.supabase) {
+      supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    }
+  } catch (e) { console.error('Supabase init error:', e); }
+
+  const syncStatus = document.getElementById('syncStatus');
+
+  // ==== PICTURE STORAGE (Supabase Storage bucket) ====
+  // Ảnh KHÔNG còn được nhét thẳng (base64) vào cột `picture` của bảng
+  // ltn_items nữa — thay vào đó ảnh được upload lên bucket này, và cột
+  // `picture` chỉ lưu URL công khai (rất nhẹ). Nhờ vậy mỗi lần app load
+  // danh sách bản ghi (select('*')) sẽ KHÔNG kéo theo dữ liệu ảnh nữa,
+  // ảnh chỉ được trình duyệt tải khi thực sự cần hiển thị (thẻ <img>).
+  const PICTURE_BUCKET = 'item-pictures';
+
+  function dataUrlToBlob(dataUrl) {
+    const [header, base64] = dataUrl.split(',');
+    const mimeMatch = /data:(.*?);base64/.exec(header || '');
+    const mime = mimeMatch ? mimeMatch[1] : 'image/jpeg';
+    const binary = atob(base64);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    return new Blob([bytes], { type: mime });
+  }
+
+  // If `pictureDataUrl` is a freshly-pasted base64 image, upload it to the
+  // Storage bucket and return its public URL. If it's already a URL (or
+  // empty), return it unchanged — this makes the function safe to call on
+  // every save without re-uploading pictures that haven't changed.
+  async function uploadPictureIfNeeded(id, pictureDataUrl) {
+    if (!pictureDataUrl || !pictureDataUrl.startsWith('data:')) return pictureDataUrl;
+    if (!supabaseClient) return pictureDataUrl; // no Supabase configured, keep as-is locally
+    const blob = dataUrlToBlob(pictureDataUrl);
+    const ext = blob.type === 'image/png' ? 'png' : 'jpg';
+    const path = `item-${id}-${Date.now()}.${ext}`;
+    const { error: upErr } = await supabaseClient.storage
+      .from(PICTURE_BUCKET)
+      .upload(path, blob, { contentType: blob.type, upsert: true });
+    if (upErr) throw upErr;
+    const { data: pub } = supabaseClient.storage.from(PICTURE_BUCKET).getPublicUrl(path);
+    return pub.publicUrl;
+  }
+
+  // ---- Case-insensitive Room/Item merging ----
+  // "Bếp" and "bếp" should be treated as the same Room/Item. We keep whatever
+  // casing was typed the FIRST time as the display casing, and reuse it for
+  // every later entry that only differs by case.
+  function normalizeKey(str) {
+    return String(str || '').trim().toLowerCase();
+  }
+  // Whatever the user types (all caps, all lower, mixed...), every saved field
+  // is normalized to the same shape: first letter capitalized, the rest lowercase.
+  function capitalizeFirst(str) {
+    const s = String(str || '').trim();
+    if (!s) return s;
+    return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+  }
+
+
+  // ---- Autocomplete suggestions (datalists) built from already-saved data ----
+  function uniqueSorted(arr) {
+    return [...new Set(arr.map(v => String(v || '').trim()).filter(Boolean))]
+      .sort((a, b) => a.localeCompare(b, 'vi'));
+  }
+  function populateDatalist(id, values) {
+    const dl = document.getElementById(id);
+    if (!dl) return;
+    dl.innerHTML = values.map(v => `<option value="${escapeHtml(v)}"></option>`).join('');
+  }
+  function updateItemDatalist(datalistId, roomVal) {
+    const roomKey = normalizeKey(roomVal);
+    let pool = items;
+    if (roomKey) {
+      const scoped = items.filter(it => normalizeKey(it.room) === roomKey);
+      if (scoped.length) pool = scoped;
+    }
+    populateDatalist(datalistId, uniqueSorted(pool.map(it => it.item)));
+  }
+  function refreshAllDatalists() {
+    populateDatalist('roomOptions', uniqueSorted(items.map(it => it.room)));
+    populateDatalist('attributeOptions', uniqueSorted(items.map(it => it.attribute)));
+    populateDatalist('nameOptions', uniqueSorted(items.map(it => it.name)));
+    updateItemDatalist('itemOptionsF', document.getElementById('fRoom') ? document.getElementById('fRoom').value : '');
+    updateItemDatalist('itemOptionsE', document.getElementById('eRoom') ? document.getElementById('eRoom').value : '');
+  }
+
+  // Does the "window.storage" synced-storage API actually exist in this environment?
+  // (It's only available inside Claude Artifacts. When this file is opened as a
+  // regular local/hosted HTML page, window.storage is undefined, so we fall back
+  // to the browser's own localStorage — which DOES persist across closing/reopening
+  // the page, as long as it's opened from the same URL/file in the same browser.)
+  function hasSyncedStorage() {
+    return !!supabaseClient;
+  }
+
+  function loadFromLocalStorage() {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const parsed = JSON.parse(raw);
+    items = Array.isArray(parsed.items) ? parsed.items : [];
+    nextId = typeof parsed.nextId === 'number' ? parsed.nextId : (items.reduce((m, it) => Math.max(m, it.id), 0) + 1);
+  }
+
+  function saveToLocalStorage() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ items, nextId }));
+  }
+
+  // ---- Trash bin (soft delete, kept locally, restorable within 7 days) ----
+  function loadTrashFromLocalStorage() {
+    try {
+      const raw = localStorage.getItem(TRASH_STORAGE_KEY);
+      deletedItems = raw ? JSON.parse(raw) : [];
+      if (!Array.isArray(deletedItems)) deletedItems = [];
+    } catch (e) { deletedItems = []; }
+  }
+
+  function saveTrashToLocalStorage() {
+    try { localStorage.setItem(TRASH_STORAGE_KEY, JSON.stringify(deletedItems)); } catch (e) { /* ignore */ }
+  }
+
+  // Remove any trashed item whose 7-day retention window has passed.
+  function purgeExpiredTrash() {
+    const now = Date.now();
+    const before = deletedItems.length;
+    deletedItems = deletedItems.filter(it => (now - new Date(it.deletedAt).getTime()) < TRASH_RETENTION_MS);
+    if (deletedItems.length !== before) saveTrashToLocalStorage();
+  }
+
+  function updateTrashBadge() {
+    const badge = document.getElementById('trashBadge');
+    if (!badge) return;
+    if (deletedItems.length) {
+      badge.style.display = 'flex';
+      badge.textContent = deletedItems.length > 99 ? '99+' : String(deletedItems.length);
+    } else {
+      badge.style.display = 'none';
+      badge.textContent = '';
+    }
+  }
+
+  // Move one or more removed records into the trash (instead of deleting them outright).
+  function moveToTrash(list) {
+    if (!list || !list.length) return;
+    const now = new Date().toISOString();
+    list.forEach(it => deletedItems.push({ ...it, deletedAt: now }));
+    saveTrashToLocalStorage();
+    updateTrashBadge();
+  }
+
+  function restoreFromTrash(id) {
+    const idx = deletedItems.findIndex(x => x.id === id);
+    if (idx === -1) return;
+    const restored = { ...deletedItems[idx] };
+    delete restored.deletedAt;
+    deletedItems.splice(idx, 1);
+    items.push(restored);
+    items.sort((a, b) => a.id - b.id);
+    saveTrashToLocalStorage();
+    saveData(restored);
+    renderRecent();
+    renderCatalog();
+    renderHistory();
+    renderTrash();
+    refreshAllDatalists();
+    document.getElementById('countBadge').textContent = items.length + ' bản ghi';
+  }
+
+  function permanentlyDeleteFromTrash(id) {
+    const it = deletedItems.find(x => x.id === id);
+    if (!it) return;
+    if (!confirm(`Xóa vĩnh viễn "${it.name}" khỏi thùng rác?`)) return;
+    deletedItems = deletedItems.filter(x => x.id !== id);
+    saveTrashToLocalStorage();
+    renderTrash();
+  }
+
+  function renderTrash() {
+    const list = document.getElementById('trashList');
+    if (!list) return;
+    purgeExpiredTrash();
+    updateTrashBadge();
+    if (!deletedItems.length) {
+      list.innerHTML = '<div class="suggest-empty">Thùng rác trống.</div>';
+      return;
+    }
+    const ordered = [...deletedItems].sort((a, b) => new Date(b.deletedAt) - new Date(a.deletedAt));
+    list.innerHTML = ordered.map(it => {
+      const deletedDate = new Date(it.deletedAt);
+      const expireDate = new Date(deletedDate.getTime() + TRASH_RETENTION_MS);
+      const daysLeft = Math.max(0, Math.ceil((expireDate.getTime() - Date.now()) / (24 * 60 * 60 * 1000)));
+      return `
+        <div class="trash-row" data-id="${it.id}">
+          <div class="trash-info">
+            <div class="name">${escapeHtml(it.name)}</div>
+            <div class="meta">${escapeHtml(it.room)} · ${escapeHtml(it.item)} · ${escapeHtml(it.attribute || '—')}</div>
+            <div class="meta">Đã xóa: ${escapeHtml(deletedDate.toLocaleString('vi-VN'))} — tự xóa vĩnh viễn sau ${daysLeft} ngày (${escapeHtml(expireDate.toLocaleDateString('vi-VN'))})</div>
+          </div>
+          <div class="row-actions">
+            <button class="restore-btn" data-id="${it.id}">Khôi phục</button>
+            <button class="delete-btn" data-id="${it.id}">Xóa vĩnh viễn</button>
+          </div>
+        </div>
+      `;
+    }).join('');
+    list.querySelectorAll('.restore-btn').forEach(btn => {
+      btn.addEventListener('click', () => restoreFromTrash(Number(btn.dataset.id)));
+    });
+    list.querySelectorAll('.delete-btn').forEach(btn => {
+      btn.addEventListener('click', () => permanentlyDeleteFromTrash(Number(btn.dataset.id)));
+    });
+  }
+
+  // Load data on startup: pull every row from the ltn_items table (one row per
+  // record). Falls back to localStorage if Supabase isn't reachable.
+  async function loadData() {
+    syncStatus.textContent = 'Đang tải dữ liệu...';
+    try {
+      if (hasSyncedStorage()) {
+        const { data, error } = await supabaseClient
+          .from('ltn_items')
+          .select('*')
+          .order('id', { ascending: true });
+        if (error) throw error;
+        items = (data || []).map(row => ({
+          id: row.id, room: row.room, item: row.item,
+          attribute: row.attribute, name: row.name,
+          picture: row.picture, savedAt: row.saved_at
+        }));
+        nextId = items.reduce((m, it) => Math.max(m, it.id), 0) + 1;
+        saveToLocalStorage();
+      } else {
+        loadFromLocalStorage();
+      }
+      syncStatus.textContent = 'Đã đồng bộ';
+    } catch (err) {
+      try { loadFromLocalStorage(); } catch (e2) { /* nothing saved yet */ }
+      syncStatus.textContent = 'Lỗi đồng bộ (đang dùng dữ liệu trên máy)';
+      console.error('Load error:', err);
+    }
+    setTimeout(() => { syncStatus.textContent = ''; }, 1500);
+  }
+
+  // Save just ONE record (the one being added/edited) instead of resending the
+  // whole list every time — this is what keeps bandwidth usage low.
+  async function saveData(changedItem) {
+    syncStatus.textContent = 'Đang lưu...';
+    try { saveToLocalStorage(); } catch (e) { /* ignore, e.g. private browsing */ }
+    try {
+      if (hasSyncedStorage() && changedItem) {
+        // Nếu picture là ảnh base64 vừa dán/kéo-thả, upload lên Storage
+        // trước và thay bằng URL công khai — bảng ltn_items chỉ lưu URL.
+        const pictureUrl = await uploadPictureIfNeeded(changedItem.id, changedItem.picture);
+        changedItem.picture = pictureUrl;
+        try { saveToLocalStorage(); } catch (e) { /* ignore */ }
+
+        const { error } = await supabaseClient
+          .from('ltn_items')
+          .upsert({
+            id: changedItem.id, room: changedItem.room, item: changedItem.item,
+            attribute: changedItem.attribute, name: changedItem.name,
+            picture: changedItem.picture, saved_at: changedItem.savedAt
+          });
+        if (error) throw error;
+      }
+      syncStatus.textContent = 'Đã đồng bộ';
+    } catch (err) {
+      syncStatus.textContent = 'Lỗi đồng bộ (đã lưu tạm trên máy)';
+      console.error('Storage error:', err);
+    }
+    setTimeout(() => { syncStatus.textContent = ''; }, 2000);
+  }
+
+  // Delete one or more records remotely by id (used by all three delete actions).
+  async function deleteRemote(ids) {
+    if (!ids.length) return;
+    syncStatus.textContent = 'Đang xoá...';
+    try { saveToLocalStorage(); } catch (e) { /* ignore */ }
+    try {
+      if (hasSyncedStorage()) {
+        const { error } = await supabaseClient.from('ltn_items').delete().in('id', ids);
+        if (error) throw error;
+      }
+      syncStatus.textContent = 'Đã đồng bộ';
+    } catch (err) {
+      syncStatus.textContent = 'Lỗi đồng bộ (đã xoá tạm trên máy)';
+      console.error('Delete sync error:', err);
+    }
+    setTimeout(() => { syncStatus.textContent = ''; }, 2000);
+  }
+ 
+  const railAdd = document.getElementById('railAdd');
+  const railCatalog = document.getElementById('railCatalog');
+  const railTrash = document.getElementById('railTrash');
+  const railSettings = document.getElementById('railSettings');
+  const historyBtn = document.getElementById('historyBtn');
+  const views = {
+    form: document.getElementById('view-form'),
+    catalog: document.getElementById('view-catalog'),
+    history: document.getElementById('view-history'),
+    trash: document.getElementById('view-trash'),
+    settings: document.getElementById('view-settings')
+  };
+ 
+  function setView(name) {
+    Object.values(views).forEach(v => v.classList.remove('active'));
+    views[name].classList.add('active');
+    railAdd.classList.toggle('active', name === 'form');
+    railCatalog.classList.toggle('active', name === 'catalog');
+    railTrash.classList.toggle('active', name === 'trash');
+    railSettings.classList.toggle('active', name === 'settings');
+    historyBtn.classList.toggle('active', name === 'history');
+    if (name === 'catalog') renderCatalog();
+    if (name === 'history') renderHistory();
+    if (name === 'trash') renderTrash();
+  }
+ 
+  railAdd.addEventListener('click', () => setView('form'));
+  railCatalog.addEventListener('click', () => setView('catalog'));
+  railTrash.addEventListener('click', () => setView('trash'));
+  railSettings.addEventListener('click', () => setView('settings'));
+  historyBtn.addEventListener('click', () => setView('history'));
+
+  // Rail auto-hide (hover to reveal) preference
+  const RAIL_PIN_KEY = 'ltn-rail-pinned';
+  const railWrap = document.getElementById('railWrap');
+  const autoHideRailChk = document.getElementById('autoHideRailChk');
+  function applyRailPin(pinned) {
+    railWrap.classList.toggle('pinned', pinned);
+  }
+  const railPinned = localStorage.getItem(RAIL_PIN_KEY) === '1';
+  applyRailPin(railPinned);
+  autoHideRailChk.checked = !railPinned;
+  autoHideRailChk.addEventListener('change', () => {
+    const pinned = !autoHideRailChk.checked;
+    localStorage.setItem(RAIL_PIN_KEY, pinned ? '1' : '0');
+    applyRailPin(pinned);
+  });
+
+  // Button/link magnification (macOS Dock-style) — applies to ALL clickable
+  // elements across the whole app (not just the left nav rail)
+  const MAGNIFY_KEY = 'ltn-rail-magnify';
+  const magnifyRange = document.getElementById('magnifyRange');
+  const magnifyValueLabel = document.getElementById('magnifyValueLabel');
+
+  // magnifyLevel is a continuous 0-100 value (any level can be picked, not just 3 fixed steps)
+  let magnifyLevel = parseInt(localStorage.getItem(MAGNIFY_KEY), 10);
+  if (isNaN(magnifyLevel) || magnifyLevel < 0 || magnifyLevel > 100) magnifyLevel = 0;
+  magnifyRange.value = magnifyLevel;
+  updateMagnifyLabel();
+
+  function updateMagnifyLabel() {
+    magnifyValueLabel.textContent = magnifyLevel === 0 ? 'Off' : magnifyLevel + '%';
+  }
+
+  const CLICKABLE_SELECTOR = 'button, a[href], .catalog-card, .recent-item, .history-row';
+  let magnifiedEls = [];
+
+  function resetMagnify() {
+    magnifiedEls.forEach(btn => {
+      btn.style.transform = '';
+      btn.style.zIndex = '';
+    });
+    magnifiedEls = [];
+  }
+
+  let magnifyRAF = null;
+  function handleGlobalMouseMove(e) {
+    if (magnifyLevel === 0) return;
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+    if (magnifyRAF) cancelAnimationFrame(magnifyRAF);
+    magnifyRAF = requestAnimationFrame(() => {
+      magnifyRAF = null;
+      const maxScale = 1 + (magnifyLevel / 100) * 0.6;  // up to 1.6x at level 100
+      const spread = 45 + (magnifyLevel / 100) * 90;    // wider ripple as level increases
+      const nextMagnified = [];
+      document.querySelectorAll(CLICKABLE_SELECTOR).forEach(btn => {
+        if (btn.offsetParent === null) return; // skip hidden/off-screen elements
+        const rect = btn.getBoundingClientRect();
+        const dx = mouseX - (rect.left + rect.width / 2);
+        const dy = mouseY - (rect.top + rect.height / 2);
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        // Gaussian falloff (no hard cutoff radius) so magnification ripples across
+        // ALL clickable elements at once, not just whichever single item is under the cursor
+        const factor = Math.exp(-(dist * dist) / (2 * spread * spread));
+        const scale = 1 + (maxScale - 1) * factor;
+        if (scale > 1.005) {
+          btn.style.transform = `scale(${scale.toFixed(3)})`;
+          btn.style.zIndex = '5';
+          nextMagnified.push(btn);
+        } else if (btn.style.transform) {
+          btn.style.transform = '';
+          btn.style.zIndex = '';
+        }
+      });
+      magnifiedEls = nextMagnified;
+    });
+  }
+
+  document.addEventListener('mousemove', handleGlobalMouseMove);
+  document.addEventListener('mouseleave', resetMagnify);
+
+  magnifyRange.addEventListener('input', () => {
+    magnifyLevel = parseInt(magnifyRange.value, 10);
+    localStorage.setItem(MAGNIFY_KEY, String(magnifyLevel));
+    updateMagnifyLabel();
+    resetMagnify();
+  });
+
+  document.getElementById('emptyTrashBtn').addEventListener('click', () => {
+    if (!deletedItems.length) return;
+    if (!confirm(`Xóa vĩnh viễn toàn bộ ${deletedItems.length} mục trong thùng rác?`)) return;
+    deletedItems = [];
+    saveTrashToLocalStorage();
+    renderTrash();
+  });
+ 
+  // ---- Form logic ----
+  const fRoom = document.getElementById('fRoom');
+  const fItem = document.getElementById('fItem');
+  const fAttribute = document.getElementById('fAttribute');
+  const fName = document.getElementById('fName');
+ 
+  const fPictureBox = document.getElementById('fPictureBox');
+  const pictureBoxText = document.getElementById('pictureBoxText');
+  const pictureBoxImg = document.getElementById('pictureBoxImg');
+  let fPictureData = null;
+
+  // Resize + nén ảnh trước khi lưu, để giảm dung lượng/băng thông khi đồng bộ
+  // (giới hạn cạnh dài nhất 900px, xuất ra JPEG chất lượng 0.72 — vẫn đủ rõ để
+  // xem trong app nhưng nhẹ hơn nhiều so với ảnh gốc).
+  function compressImage(dataUrl, maxDim = 900, quality = 0.72, mimeType = '') {
+    // Ảnh PNG thường có nền trong suốt. Nếu ép xuất ra JPEG (không hỗ trợ
+    // kênh alpha), canvas sẽ tô các vùng trong suốt thành màu đen. Vì vậy,
+    // với PNG ta xuất lại thành PNG để giữ đúng vùng trong suốt/ảnh gốc;
+    // các định dạng ảnh khác (JPG, v.v.) vẫn nén như bình thường.
+    const isPng = mimeType === 'image/png' || /^data:image\/png/i.test(dataUrl);
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => {
+        let { width, height } = img;
+        if (width > maxDim || height > maxDim) {
+          if (width >= height) { height = Math.round(height * (maxDim / width)); width = maxDim; }
+          else { width = Math.round(width * (maxDim / height)); height = maxDim; }
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = width; canvas.height = height;
+        canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+        resolve(isPng ? canvas.toDataURL('image/png') : canvas.toDataURL('image/jpeg', quality));
+      };
+      img.onerror = () => resolve(dataUrl); // nếu lỗi, dùng ảnh gốc
+      img.src = dataUrl;
+    });
+  }
+
+  fPictureBox.addEventListener('paste', (e) => {
+    const clipboardItems = (e.clipboardData && e.clipboardData.items) || [];
+    let imageFile = null;
+    for (const ci of clipboardItems) {
+      if (ci.type && ci.type.startsWith('image/')) {
+        imageFile = ci.getAsFile();
+        break;
+      }
+    }
+    if (imageFile) {
+      const reader = new FileReader();
+      reader.onload = async (ev) => {
+        fPictureData = await compressImage(ev.target.result, 900, 0.72, imageFile.type);
+        pictureBoxImg.src = fPictureData;
+        pictureBoxImg.style.display = 'block';
+        pictureBoxText.style.display = 'none';
+        updatePreview();
+      };
+      reader.readAsDataURL(imageFile);
+    }
+    e.preventDefault();
+  });
+
+  // Drag & drop support (in addition to Ctrl+V paste) for the add-record picture box
+  ['dragover', 'dragenter'].forEach(evt => fPictureBox.addEventListener(evt, (e) => {
+    e.preventDefault(); e.stopPropagation();
+    fPictureBox.classList.add('dragover');
+  }));
+  ['dragleave', 'dragend'].forEach(evt => fPictureBox.addEventListener(evt, (e) => {
+    e.preventDefault(); e.stopPropagation();
+    fPictureBox.classList.remove('dragover');
+  }));
+  fPictureBox.addEventListener('drop', (e) => {
+    e.preventDefault(); e.stopPropagation();
+    fPictureBox.classList.remove('dragover');
+    const file = [...(e.dataTransfer.files || [])].find(f => f.type && f.type.startsWith('image/'));
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = async (ev) => {
+      fPictureData = await compressImage(ev.target.result, 900, 0.72, file.type);
+      pictureBoxImg.src = fPictureData;
+      pictureBoxImg.style.display = 'block';
+      pictureBoxText.style.display = 'none';
+      updatePreview();
+    };
+    reader.readAsDataURL(file);
+  });
+ 
+  function clearForm() {
+    fRoom.value = ''; fItem.value = ''; fAttribute.value = ''; fName.value = '';
+    fPictureData = null;
+    pictureBoxImg.src = '';
+    pictureBoxImg.style.display = 'none';
+    pictureBoxText.style.display = 'inline';
+    updatePreview();
+  }
+  document.getElementById('clearBtn').addEventListener('click', clearForm);
+ 
+  function setPreviewImage(dataUrl) {
+    const img = document.getElementById('previewImgTag');
+    const placeholder = document.getElementById('previewImgPlaceholder');
+    if (dataUrl) {
+      img.src = dataUrl;
+      img.style.display = 'block';
+      placeholder.style.display = 'none';
+    } else {
+      img.src = '';
+      img.style.display = 'none';
+      placeholder.style.display = 'block';
+    }
+  }
+
+  // Click the preview picture to view it full-size. Because it's a real <img>
+  // (not a CSS background), right-clicking it also lets the browser's own
+  // "Search image" / Google Lens context-menu option work, even for pasted
+  // pictures — no extra code needed for that part, it's native browser support.
+  const lightboxOverlay = document.getElementById('lightboxOverlay');
+  const lightboxImg = document.getElementById('lightboxImg');
+
+  // Lăn chuột để phóng to/thu nhỏ ảnh trong lightbox.
+  const LIGHTBOX_MIN_ZOOM = 1;
+  const LIGHTBOX_MAX_ZOOM = 5;
+  let lightboxZoom = 1;
+  function setLightboxZoom(zoom) {
+    lightboxZoom = Math.min(LIGHTBOX_MAX_ZOOM, Math.max(LIGHTBOX_MIN_ZOOM, zoom));
+    lightboxImg.style.transform = `scale(${lightboxZoom})`;
+    lightboxImg.style.cursor = lightboxZoom > LIGHTBOX_MIN_ZOOM ? 'zoom-out' : 'zoom-in';
+  }
+  function resetLightboxZoom() { setLightboxZoom(1); }
+
+  document.getElementById('previewImg').addEventListener('click', () => {
+    const img = document.getElementById('previewImgTag');
+    if (img.style.display === 'block' && img.src) {
+      lightboxImg.src = img.src;
+      resetLightboxZoom();
+      lightboxOverlay.classList.add('open');
+    }
+  });
+  lightboxOverlay.addEventListener('click', () => {
+    lightboxOverlay.classList.remove('open');
+    lightboxImg.src = '';
+    resetLightboxZoom();
+  });
+  lightboxOverlay.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const step = 0.25;
+    setLightboxZoom(lightboxZoom + (e.deltaY < 0 ? step : -step));
+  }, { passive: false });
+ 
+  function updatePreview() {
+    currentPreviewName = fName.value.trim();
+    document.getElementById('pvNameText').textContent = fName.value.trim() || 'Chưa có Name';
+    document.getElementById('pvRoom').textContent = 'Room: ' + (fRoom.value.trim() || '—');
+    document.getElementById('pvItem').textContent = 'Item: ' + (fItem.value.trim() || '—');
+    document.getElementById('pvAttribute').textContent = 'Attribute: ' + (fAttribute.value.trim() || '—');
+    setPreviewImage(fPictureData);
+    scheduleIpaLookup(fName.value.trim());
+  }
+  [fRoom, fItem, fAttribute, fName].forEach(el => el.addEventListener('input', updatePreview));
+
+  // ---- Auto IPA lookup (tự động tra phiên âm tiếng Anh theo Name) ----
+  const pvIpaEl = document.getElementById('pvIpa');
+  const pvIpaLinkBtn = document.getElementById('pvIpaLinkBtn');
+  let currentPreviewName = '';
+  const ipaWordCache = new Map(); // word(lowercase) -> ipa string or null (not found)
+  let ipaDebounceTimer = null;
+  let ipaRequestSeq = 0; // ensures only the latest lookup updates the UI
+
+  // toPhonetics.com không có API/tham số URL để điền sẵn chữ, nên chỉ có thể
+  // copy tên vào clipboard rồi mở trang để người dùng tự dán vào và đối chiếu.
+  pvIpaLinkBtn.addEventListener('click', () => {
+    const text = currentPreviewName.trim();
+    if (!text) { alert('Chưa có Name để tra.'); return; }
+    copyTextToClipboard(text);
+    window.open('https://tophonetics.com/vi/', '_blank');
+  });
+
+
+  // Nguồn 1 (chính): Wiktionary — kho từ điển lớn nhất, có phiên âm cho hầu hết
+  // mọi từ tiếng Anh kể cả từ ghép ít gặp (vd "makeup"). Dùng action=parse lấy
+  // wikitext rồi tự bóc tách template {{IPA|en|/.../}} trong mục "English".
+  async function fetchWordIpaFromWiktionary(word) {
+    try {
+      const url = 'https://en.wiktionary.org/w/api.php?action=parse&page=' +
+        encodeURIComponent(word) + '&prop=wikitext&formatversion=2&format=json&origin=*';
+      const res = await fetch(url);
+      if (!res.ok) return null;
+      const data = await res.json();
+      if (!data.parse || !data.parse.wikitext) return null;
+      const wikitext = data.parse.wikitext;
+      // Chỉ lấy phần mục "English" (bỏ qua các thứ tiếng khác nếu từ trùng chữ viết)
+      const enSection = wikitext.match(/(?:^|\n)==\s*English\s*==\n([\s\S]*?)(?=\n==[^==]|$)/);
+      const section = enSection ? enSection[1] : wikitext;
+      // Ưu tiên template {{IPA|en|/.../}}
+      const ipaTemplate = section.match(/\{\{IPA\|en\|([^}]+)\}\}/i);
+      if (ipaTemplate) {
+        const slash = ipaTemplate[1].match(/\/[^\/|}]+\//);
+        if (slash) return slash[0];
+      }
+      // Dự phòng: tìm ký hiệu /.../  trong mục "Pronunciation"
+      const pron = section.match(/===\s*Pronunciation\s*===([\s\S]*?)(?=\n===|\n==|$)/i);
+      if (pron) {
+        const slash = pron[1].match(/\/[^\/\n]+\//);
+        if (slash) return slash[0];
+      }
+      return null;
+    } catch (err) {
+      return null;
+    }
+  }
+
+  // Nguồn 2 (dự phòng): Free Dictionary API — nhanh nhưng kho từ nhỏ hơn,
+  // chỉ dùng khi Wiktionary không tìm thấy từ.
+  async function fetchWordIpaFromDictionaryApi(word) {
+    try {
+      const res = await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/' + encodeURIComponent(word));
+      if (!res.ok) return null;
+      const data = await res.json();
+      for (const entry of data) {
+        if (entry.phonetic) return entry.phonetic;
+        if (Array.isArray(entry.phonetics)) {
+          const found = entry.phonetics.find(p => p && p.text);
+          if (found) return found.text;
+        }
+      }
+      return null;
+    } catch (err) {
+      return null;
+    }
+  }
+
+  async function fetchWordIpa(word) {
+    const key = word.toLowerCase();
+    if (ipaWordCache.has(key)) return ipaWordCache.get(key);
+    let ipa = await fetchWordIpaFromWiktionary(key);
+    if (!ipa) ipa = await fetchWordIpaFromDictionaryApi(key);
+    ipaWordCache.set(key, ipa);
+    return ipa;
+  }
+
+  async function lookupIpaForPhrase(phrase) {
+    const words = phrase.split(/\s+/).filter(Boolean);
+    if (!words.length) return '';
+    const results = await Promise.all(words.map(fetchWordIpa));
+    return results.filter(Boolean).join(' ');
+  }
+
+  function scheduleIpaLookup(nameValue) {
+    clearTimeout(ipaDebounceTimer);
+    const trimmed = (nameValue || '').trim();
+    if (!trimmed) { pvIpaEl.textContent = ''; pvIpaEl.classList.remove('loading'); return; }
+    // Only auto-lookup for English-looking text (letters/spaces/hyphens, no Vietnamese diacritics)
+    if (!/^[a-zA-Z\s-]+$/.test(trimmed)) { pvIpaEl.textContent = ''; pvIpaEl.classList.remove('loading'); return; }
+    const mySeq = ++ipaRequestSeq;
+    ipaDebounceTimer = setTimeout(async () => {
+      pvIpaEl.textContent = '…';
+      pvIpaEl.classList.add('loading');
+      const ipa = await lookupIpaForPhrase(trimmed);
+      if (mySeq !== ipaRequestSeq) return; // a newer lookup superseded this one
+      pvIpaEl.classList.remove('loading');
+      pvIpaEl.textContent = ipa || '';
+    }, 500);
+  }
+  fRoom.addEventListener('input', () => updateItemDatalist('itemOptionsF', fRoom.value));
+ 
+  document.getElementById('saveBtn').addEventListener('click', () => {
+    if (!fRoom.value.trim() || !fItem.value.trim() || !fName.value.trim()) {
+      alert('Vui lòng nhập Room, Item và Name trước khi lưu.');
+      return;
+    }
+    // No matter how it was typed, every field is saved with only its first letter capitalized
+    const roomVal = capitalizeFirst(fRoom.value);
+    const itemVal = capitalizeFirst(fItem.value);
+    const attributeVal = capitalizeFirst(fAttribute.value);
+    const nameVal = capitalizeFirst(fName.value);
+
+    // Warn if an identical record (same Room/Item/Attribute/Name) already exists
+    const dup = items.find(it =>
+      normalizeKey(it.room) === normalizeKey(roomVal) &&
+      normalizeKey(it.item) === normalizeKey(itemVal) &&
+      normalizeKey(it.attribute) === normalizeKey(attributeVal) &&
+      normalizeKey(it.name) === normalizeKey(nameVal)
+    );
+    if (dup) {
+      const ok = confirm(
+        'Bản ghi này có vẻ đã tồn tại:\n' +
+        `${roomVal} · ${itemVal} · ${attributeVal || '—'} · ${nameVal}\n\n` +
+        'Bạn có chắc muốn lưu thêm một bản ghi trùng không?'
+      );
+      if (!ok) return;
+    }
+
+    const now = new Date();
+    const pad = n => String(n).padStart(2, '0');
+    const savedAt = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
+    const newItem = {
+      id: nextId++,
+      room: roomVal,
+      item: itemVal,
+      attribute: attributeVal,
+      name: nameVal,
+      picture: fPictureData,
+      savedAt
+    };
+    items.push(newItem);
+    clearForm();
+    saveData(newItem);
+    renderRecent();
+    renderCatalog();
+    renderHistory();
+    refreshAllDatalists();
+    document.getElementById('countBadge').textContent = items.length + ' bản ghi';
+  });
+ 
+  // ---- Recent (Đã lưu gần đây) ----
+  function renderRecent() {
+    const list = document.getElementById('recentList');
+    const recent = [...items].sort((a,b) => b.id - a.id);
+    if (!recent.length) {
+      list.innerHTML = '<div class="suggest-empty">Chưa có bản ghi nào</div>';
+      return;
+    }
+    list.innerHTML = recent.map((it, idx) => `
+      <div class="recent-item" data-id="${it.id}">
+        <div>
+          <div class="name">${escapeHtml(it.name)}</div>
+          <div class="meta">${escapeHtml(it.room)} · ${escapeHtml(it.attribute || '—')}</div>
+        </div>
+        <div class="num">#${items.findIndex(x => x.id === it.id) + 1}</div>
+      </div>
+    `).join('');
+    list.querySelectorAll('.recent-item').forEach(el => {
+      el.addEventListener('click', () => goToCatalogItem(Number(el.dataset.id)));
+    });
+  }
+ 
+  // ---- Catalog (grouped by Room, then by Item, indented deeper for each level) ----
+  function renderCatalog() {
+    const container = document.getElementById('roomList');
+    if (!items.length) {
+      container.innerHTML = '<div class="suggest-empty">Chưa có bản ghi nào được thêm.</div>';
+      return;
+    }
+    // Group case-insensitively: "Bếp" and "bếp" fall into the same group,
+    // using whichever casing was seen first as the display label.
+    const roomGroups = {};
+    items.forEach(it => {
+      const roomKey = normalizeKey(it.room);
+      if (!roomGroups[roomKey]) roomGroups[roomKey] = { display: it.room, itemGroups: {} };
+      const itemKey = normalizeKey(it.item);
+      if (!roomGroups[roomKey].itemGroups[itemKey]) roomGroups[roomKey].itemGroups[itemKey] = { display: it.item, rows: [] };
+      roomGroups[roomKey].itemGroups[itemKey].rows.push(it);
+    });
+ 
+    container.innerHTML = Object.keys(roomGroups).map(roomKey => {
+      const roomDisplay = roomGroups[roomKey].display;
+      const itemGroups = roomGroups[roomKey].itemGroups;
+      const roomCount = Object.values(itemGroups).reduce((sum, g) => sum + g.rows.length, 0);
+      const isRoomOpen = expandedRooms.has(roomKey);
+ 
+      const itemsHtml = Object.keys(itemGroups).map(itemKey => {
+        const itemDisplay = itemGroups[itemKey].display;
+        const rows = itemGroups[itemKey].rows;
+        const fullItemKey = roomKey + '||' + itemKey;
+        const isItemOpen = expandedItems.has(fullItemKey);
+        const rowsHtml = rows.map(it => {
+          const label = it.attribute ? `${escapeHtml(it.attribute)} - ${escapeHtml(it.name)}` : escapeHtml(it.name);
+          return `
+            <div class="entry-row ${selectedEntryId === it.id ? 'selected' : ''}" data-id="${it.id}" title="Nhấp đúp để sửa">
+              <div class="row-text">${label}</div>
+              <div class="row-actions">
+                <button class="copy-btn" data-id="${it.id}" title="Copy Name">Copy</button>
+                <button class="delete-btn" data-id="${it.id}">Xóa</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+        return `
+          <div class="item-group">
+            <div class="item-header" data-room-key="${escapeHtml(roomKey)}" data-item-key="${escapeHtml(itemKey)}">
+              <div><span class="item-name" title="Nhấp đúp để đổi tên">${escapeHtml(itemDisplay)}</span><span class="item-count">${rows.length} mục</span></div>
+              <div style="display:flex;align-items:center;gap:6px;">
+                <button class="delete-item-btn" data-room-key="${escapeHtml(roomKey)}" data-item-key="${escapeHtml(itemKey)}" data-item-name="${escapeHtml(itemDisplay)}" title="Xóa cả mục ${escapeHtml(itemDisplay)}">Xóa</button>
+                <button class="item-toggle ${isItemOpen ? 'open' : ''}" data-room-key="${escapeHtml(roomKey)}" data-item-key="${escapeHtml(itemKey)}">&#9654;</button>
+              </div>
+            </div>
+            <div class="item-rows ${isItemOpen ? 'open' : ''}">
+              ${rowsHtml}
+            </div>
+          </div>
+        `;
+      }).join('');
+ 
+      return `
+        <div class="room-group">
+          <div class="room-header" data-room-key="${escapeHtml(roomKey)}">
+            <div><span class="room-name" title="Nhấp đúp để đổi tên">${escapeHtml(roomDisplay)}</span><span class="room-count">${roomCount} mục</span></div>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <button class="delete-room-btn" data-room-key="${escapeHtml(roomKey)}" data-room-name="${escapeHtml(roomDisplay)}" title="Xóa cả Room ${escapeHtml(roomDisplay)}">Xóa</button>
+              <button class="room-toggle ${isRoomOpen ? 'open' : ''}" data-room-key="${escapeHtml(roomKey)}">&#9654;</button>
+            </div>
+          </div>
+          <div class="room-rows ${isRoomOpen ? 'open' : ''}" data-room-key="${escapeHtml(roomKey)}">
+            ${itemsHtml}
+          </div>
+        </div>
+      `;
+    }).join('');
+ 
+    // Toggle room open/closed
+    container.querySelectorAll('.room-header, .room-toggle').forEach(el => {
+      el.addEventListener('click', (e) => {
+        if (e.target.closest('.delete-room-btn')) return;
+        if (e.target.closest('.room-name')) return; // name text is for double-click-to-rename only
+        e.stopPropagation();
+        const roomKey = el.dataset.roomKey;
+        if (expandedRooms.has(roomKey)) expandedRooms.delete(roomKey);
+        else expandedRooms.add(roomKey);
+        renderCatalog();
+      });
+    });
+ 
+    // Toggle item open/closed (within a room)
+    container.querySelectorAll('.item-header, .item-toggle').forEach(el => {
+      el.addEventListener('click', (e) => {
+        if (e.target.closest('.delete-item-btn')) return;
+        if (e.target.closest('.item-name')) return; // name text is for double-click-to-rename only
+        e.stopPropagation();
+        const fullItemKey = el.dataset.roomKey + '||' + el.dataset.itemKey;
+        if (expandedItems.has(fullItemKey)) expandedItems.delete(fullItemKey);
+        else expandedItems.add(fullItemKey);
+        renderCatalog();
+      });
+    });
+
+    // Double-click a Room name -> rename it in place (applies to every item in that Room)
+    container.querySelectorAll('.room-name').forEach(el => {
+      el.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        const header = el.closest('.room-header');
+        startRoomRename(el, header.dataset.roomKey);
+      });
+    });
+
+    // Double-click an Item name -> rename it in place (applies to every item in that Item group)
+    container.querySelectorAll('.item-name').forEach(el => {
+      el.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        const header = el.closest('.item-header');
+        startItemRename(el, header.dataset.roomKey, header.dataset.itemKey);
+      });
+    });
+
+    // Delete an entire Room (and every Item/entry inside it)
+    container.querySelectorAll('.delete-room-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const roomKey = btn.dataset.roomKey;
+        const roomName = btn.dataset.roomName;
+        const removed = items.filter(x => normalizeKey(x.room) === roomKey);
+        const removedIds = removed.map(x => x.id);
+        if (!confirm(`Xóa toàn bộ Room "${roomName}" (${removedIds.length} mục)?`)) return;
+        items = items.filter(x => normalizeKey(x.room) !== roomKey);
+        expandedRooms.delete(roomKey);
+        moveToTrash(removed);
+        deleteRemote(removedIds);
+        renderRecent();
+        renderCatalog();
+        renderHistory();
+        renderTrash();
+        refreshAllDatalists();
+        document.getElementById('countBadge').textContent = items.length + ' bản ghi';
+      });
+    });
+
+    // Delete an entire Item group (within a Room)
+    container.querySelectorAll('.delete-item-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const roomKey = btn.dataset.roomKey;
+        const itemKey = btn.dataset.itemKey;
+        const itemName = btn.dataset.itemName;
+        const removed = items.filter(x => normalizeKey(x.room) === roomKey && normalizeKey(x.item) === itemKey);
+        const removedIds = removed.map(x => x.id);
+        if (!confirm(`Xóa toàn bộ mục "${itemName}" (${removedIds.length} bản ghi)?`)) return;
+        items = items.filter(x => !(normalizeKey(x.room) === roomKey && normalizeKey(x.item) === itemKey));
+        expandedItems.delete(roomKey + '||' + itemKey);
+        moveToTrash(removed);
+        deleteRemote(removedIds);
+        renderRecent();
+        renderCatalog();
+        renderHistory();
+        renderTrash();
+        refreshAllDatalists();
+        document.getElementById('countBadge').textContent = items.length + ' bản ghi';
+      });
+    });
+ 
+    // Click an entry row (not the copy/delete button) -> show its picture/info in side preview
+    container.querySelectorAll('.entry-row').forEach(el => {
+      el.addEventListener('click', (e) => {
+        if (e.target.closest('.copy-btn') || e.target.closest('.delete-btn')) return;
+        const id = Number(el.dataset.id);
+        const it = items.find(x => x.id === id);
+        selectedEntryId = id;
+        container.querySelectorAll('.entry-row.selected').forEach(r => r.classList.remove('selected'));
+        el.classList.add('selected');
+        if (it) showPreview(it);
+      });
+      // Double-click an entry row -> edit its Room/Item/Attribute/Name/Picture
+      el.addEventListener('dblclick', (e) => {
+        if (e.target.closest('.copy-btn') || e.target.closest('.delete-btn')) return;
+        e.stopPropagation();
+        const id = Number(el.dataset.id);
+        const it = items.find(x => x.id === id);
+        if (it) openEditModal(it);
+      });
+    });
+
+    // Copy an entry's Name (same effect as picking it from the search bar)
+    container.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = Number(btn.dataset.id);
+        const it = items.find(x => x.id === id);
+        if (it) copyItemName(it.name);
+      });
+    });
+
+    // Delete an entry
+    container.querySelectorAll('.delete-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = Number(btn.dataset.id);
+        const it = items.find(x => x.id === id);
+        if (!it) return;
+        if (!confirm(`Xóa mục "${it.name}" (${it.room} / ${it.item})?`)) return;
+        items = items.filter(x => x.id !== id);
+        moveToTrash([it]);
+        deleteRemote([id]);
+        renderRecent();
+        renderCatalog();
+        renderHistory();
+        renderTrash();
+        refreshAllDatalists();
+        document.getElementById('countBadge').textContent = items.length + ' bản ghi';
+      });
+    });
+   }
+
+  // ---- Rename a whole Room / Item group in place (double-click the group name) ----
+  // Same rule as the form: whatever is typed, only the first letter is kept capitalized.
+  function startRoomRename(nameEl, roomKey) {
+    const originalText = nameEl.textContent;
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'inline-rename-input';
+    input.value = originalText;
+    nameEl.replaceWith(input);
+    input.focus();
+    input.select();
+
+    let done = false;
+    const finish = (shouldSave) => {
+      if (done) return;
+      done = true;
+      if (shouldSave) {
+        const newVal = capitalizeFirst(input.value);
+        if (newVal && newVal !== originalText) {
+          renameRoomGroup(roomKey, newVal);
+          return;
+        }
+      }
+      renderCatalog();
+    };
+    input.addEventListener('blur', () => finish(true));
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); input.blur(); }
+      else if (e.key === 'Escape') { e.preventDefault(); finish(false); }
+    });
+  }
+
+  function startItemRename(nameEl, roomKey, itemKey) {
+    const originalText = nameEl.textContent;
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'inline-rename-input';
+    input.value = originalText;
+    nameEl.replaceWith(input);
+    input.focus();
+    input.select();
+
+    let done = false;
+    const finish = (shouldSave) => {
+      if (done) return;
+      done = true;
+      if (shouldSave) {
+        const newVal = capitalizeFirst(input.value);
+        if (newVal && newVal !== originalText) {
+          renameItemGroup(roomKey, itemKey, newVal);
+          return;
+        }
+      }
+      renderCatalog();
+    };
+    input.addEventListener('blur', () => finish(true));
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); input.blur(); }
+      else if (e.key === 'Escape') { e.preventDefault(); finish(false); }
+    });
+  }
+
+  // Renames every item under a Room, keeping expanded/collapsed state pointed at the new key
+  function renameRoomGroup(roomKey, newDisplay) {
+    const affected = items.filter(it => normalizeKey(it.room) === roomKey);
+    if (!affected.length) { renderCatalog(); return; }
+    affected.forEach(it => { it.room = newDisplay; });
+
+    const newKey = normalizeKey(newDisplay);
+    if (expandedRooms.has(roomKey)) { expandedRooms.delete(roomKey); expandedRooms.add(newKey); }
+    const updatedExpandedItems = new Set();
+    expandedItems.forEach(k => {
+      if (k.startsWith(roomKey + '||')) updatedExpandedItems.add(newKey + k.slice(roomKey.length));
+      else updatedExpandedItems.add(k);
+    });
+    expandedItems = updatedExpandedItems;
+
+    affected.forEach(it => saveData(it));
+    renderRecent();
+    renderCatalog();
+    renderHistory();
+    refreshAllDatalists();
+  }
+
+  // Renames every item under a specific Item group (within one Room)
+  function renameItemGroup(roomKey, itemKey, newDisplay) {
+    const affected = items.filter(it => normalizeKey(it.room) === roomKey && normalizeKey(it.item) === itemKey);
+    if (!affected.length) { renderCatalog(); return; }
+    affected.forEach(it => { it.item = newDisplay; });
+
+    const newFullKey = roomKey + '||' + normalizeKey(newDisplay);
+    const oldFullKey = roomKey + '||' + itemKey;
+    if (expandedItems.has(oldFullKey)) { expandedItems.delete(oldFullKey); expandedItems.add(newFullKey); }
+
+    affected.forEach(it => saveData(it));
+    renderRecent();
+    renderCatalog();
+    renderHistory();
+    refreshAllDatalists();
+  }
+
+  // Copy Name (accumulates, comma-separated) — called when an item is picked
+  // from the search box's suggestion dropdown.
+  let copyToastTimer = null;
+  function updateCopyPreview() {
+    const bar = document.getElementById('copyPreviewBar');
+    const content = document.getElementById('copyPreviewContent');
+    if (!bar || !content) return;
+    if (copiedNames.length) {
+      content.textContent = copiedNames.join(', ');
+      bar.classList.add('has-content');
+    } else {
+      content.textContent = 'Chưa copy gì';
+      bar.classList.remove('has-content');
+    }
+  }
+  function copyItemName(name) {
+    if (!copiedNames.includes(name)) {
+      copiedNames.push(name);
+    }
+    const text = copiedNames.join(', ');
+    copyTextToClipboard(text);
+    updateCopyPreview();
+
+    const toast = document.getElementById('copyToast');
+    if (toast) {
+      toast.textContent = 'Đã copy: ' + text;
+      toast.classList.add('show');
+      if (copyToastTimer) clearTimeout(copyToastTimer);
+      copyToastTimer = setTimeout(() => toast.classList.remove('show'), 1200);
+    }
+
+    // Tự động reset danh sách đã copy nếu 10 giây không có thao tác copy thêm
+    if (copyResetTimer) clearTimeout(copyResetTimer);
+    copyResetTimer = setTimeout(() => {
+      copiedNames = [];
+      copyTextToClipboard('');
+      updateCopyPreview();
+      copyResetTimer = null;
+    }, 10000);
+  }
+ 
+  // Robust clipboard writer — uses the classic execCommand method only, since
+  // navigator.clipboard.writeText() triggers a "This file wants to..." permission
+  // prompt every time when the page is opened as a local file (file://).
+  function copyTextToClipboard(text) {
+    fallbackCopy(text);
+  }
+  function fallbackCopy(text) {
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    } catch (err) { /* clipboard unavailable, ignore */ }
+  }
+
+  function showPreview(it) {
+    currentPreviewName = it.name || '';
+    document.getElementById('pvNameText').textContent = it.name || 'Chưa có Name';
+    document.getElementById('pvRoom').textContent = 'Room: ' + (it.room || '—');
+    document.getElementById('pvItem').textContent = 'Item: ' + (it.item || '—');
+    document.getElementById('pvAttribute').textContent = 'Attribute: ' + (it.attribute || '—');
+    setPreviewImage(it.picture);
+    scheduleIpaLookup(it.name || '');
+  }
+
+  // ---- Edit modal (double-click a catalog entry) ----
+  let editingId = null;
+  let ePictureData = null;
+  const editOverlay = document.getElementById('editOverlay');
+  const eRoom = document.getElementById('eRoom');
+  const eItem = document.getElementById('eItem');
+  const eAttribute = document.getElementById('eAttribute');
+  const eName = document.getElementById('eName');
+  const ePictureBox = document.getElementById('ePictureBox');
+  const ePictureBoxText = document.getElementById('ePictureBoxText');
+  const ePictureBoxImg = document.getElementById('ePictureBoxImg');
+  eRoom.addEventListener('input', () => updateItemDatalist('itemOptionsE', eRoom.value));
+  eName.addEventListener('input', () => scheduleIpaLookup(eName.value.trim()));
+
+  function openEditModal(it) {
+    editingId = it.id;
+    eRoom.value = it.room || '';
+    eItem.value = it.item || '';
+    eAttribute.value = it.attribute || '';
+    eName.value = it.name || '';
+    ePictureData = it.picture || null;
+    if (ePictureData) {
+      ePictureBoxImg.src = ePictureData;
+      ePictureBoxImg.style.display = 'block';
+      ePictureBoxText.style.display = 'none';
+    } else {
+      ePictureBoxImg.src = '';
+      ePictureBoxImg.style.display = 'none';
+      ePictureBoxText.style.display = 'inline';
+    }
+    editOverlay.classList.add('open');
+  }
+  function closeEditModal() {
+    editOverlay.classList.remove('open');
+    editingId = null;
+  }
+  document.getElementById('editCancelBtn').addEventListener('click', closeEditModal);
+  editOverlay.addEventListener('click', (e) => { if (e.target === editOverlay) closeEditModal(); });
+
+  function setEPicture(dataUrl) {
+    ePictureData = dataUrl;
+    ePictureBoxImg.src = dataUrl;
+    ePictureBoxImg.style.display = 'block';
+    ePictureBoxText.style.display = 'none';
+  }
+
+  // Paste a new picture inside the edit modal
+  ePictureBox.addEventListener('paste', (e) => {
+    const clipboardItems = (e.clipboardData && e.clipboardData.items) || [];
+    let imageFile = null;
+    for (const ci of clipboardItems) {
+      if (ci.type && ci.type.startsWith('image/')) { imageFile = ci.getAsFile(); break; }
+    }
+    if (imageFile) {
+      const reader = new FileReader();
+      reader.onload = async (ev) => setEPicture(await compressImage(ev.target.result, 900, 0.72, imageFile.type));
+      reader.readAsDataURL(imageFile);
+    }
+    e.preventDefault();
+  });
+  // Drag & drop a new picture inside the edit modal
+  ['dragover', 'dragenter'].forEach(evt => ePictureBox.addEventListener(evt, (e) => {
+    e.preventDefault(); e.stopPropagation();
+    ePictureBox.classList.add('dragover');
+  }));
+  ['dragleave', 'dragend'].forEach(evt => ePictureBox.addEventListener(evt, (e) => {
+    e.preventDefault(); e.stopPropagation();
+    ePictureBox.classList.remove('dragover');
+  }));
+  ePictureBox.addEventListener('drop', (e) => {
+    e.preventDefault(); e.stopPropagation();
+    ePictureBox.classList.remove('dragover');
+    const file = [...(e.dataTransfer.files || [])].find(f => f.type && f.type.startsWith('image/'));
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = async (ev) => setEPicture(await compressImage(ev.target.result, 900, 0.72, file.type));
+    reader.readAsDataURL(file);
+  });
+
+  document.getElementById('editSaveBtn').addEventListener('click', () => {
+    if (!eRoom.value.trim() || !eItem.value.trim() || !eName.value.trim()) {
+      alert('Vui lòng nhập Room, Item và Name trước khi lưu.');
+      return;
+    }
+    const it = items.find(x => x.id === editingId);
+    if (!it) { closeEditModal(); return; }
+    const roomVal = capitalizeFirst(eRoom.value);
+    const itemVal = capitalizeFirst(eItem.value);
+    const attributeVal = capitalizeFirst(eAttribute.value);
+    const nameVal = capitalizeFirst(eName.value);
+
+    // Warn if this change would collide with a different, already-existing record
+    const dup = items.find(x =>
+      x.id !== editingId &&
+      normalizeKey(x.room) === normalizeKey(roomVal) &&
+      normalizeKey(x.item) === normalizeKey(itemVal) &&
+      normalizeKey(x.attribute) === normalizeKey(attributeVal) &&
+      normalizeKey(x.name) === normalizeKey(nameVal)
+    );
+    if (dup) {
+      const ok = confirm(
+        'Đã có một bản ghi khác giống hệt thông tin này:\n' +
+        `${roomVal} · ${itemVal} · ${attributeVal || '—'} · ${nameVal}\n\n` +
+        'Bạn có chắc muốn lưu thay đổi này không?'
+      );
+      if (!ok) return;
+    }
+
+    it.room = roomVal;
+    it.item = itemVal;
+    it.attribute = attributeVal;
+    it.name = nameVal;
+    it.picture = ePictureData;
+    saveData(it);
+    closeEditModal();
+    renderRecent();
+    renderCatalog();
+    renderHistory();
+    refreshAllDatalists();
+  });
+ 
+  // Reset copied-names buffer via the checkbox in the catalog view
+  const resetCopyChk = document.getElementById('resetCopyChk');
+  document.getElementById('collapseAllBtn').addEventListener('click', () => {
+    expandedRooms.clear();
+    expandedItems.clear();
+    renderCatalog();
+  });
+  resetCopyChk.addEventListener('change', () => {
+    if (resetCopyChk.checked) {
+      if (copyResetTimer) { clearTimeout(copyResetTimer); copyResetTimer = null; }
+      copiedNames = [];
+      copyTextToClipboard('');
+      updateCopyPreview();
+      setTimeout(() => { resetCopyChk.checked = false; }, 250);
+    }
+  });
+  document.getElementById('copyPreviewClear').addEventListener('click', () => {
+    if (copyResetTimer) { clearTimeout(copyResetTimer); copyResetTimer = null; }
+    copiedNames = [];
+    copyTextToClipboard('');
+    updateCopyPreview();
+  });
+ 
+  function goToCatalogItem(id) {
+    const it = items.find(x => x.id === id);
+    if (!it) return;
+    expandedRooms.add(normalizeKey(it.room));
+    expandedItems.add(normalizeKey(it.room) + '||' + normalizeKey(it.item));
+    selectedEntryId = id;
+    setView('catalog');
+    renderCatalog();
+    showPreview(it);
+    setTimeout(() => {
+      const el = document.querySelector('.entry-row[data-id="' + id + '"]');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 60);
+  }
+ 
+  // ---- History ----
+  function renderHistory() {
+    const list = document.getElementById('historyList');
+    if (!items.length) {
+      list.innerHTML = '<div class="suggest-empty">Chưa có bản ghi nào.</div>';
+      return;
+    }
+    const ordered = [...items].sort((a,b) => b.id - a.id);
+    list.innerHTML = ordered.map((it, idx) => `
+      <div class="history-row">
+        <div class="history-num">${ordered.length - idx}</div>
+        <div class="history-info">
+          <div class="name">${escapeHtml(it.name)}</div>
+          <div class="meta">${escapeHtml(it.room)} · ${escapeHtml(it.item)} · ${escapeHtml(it.attribute || '—')}</div>
+        </div>
+        <div class="history-time">${it.savedAt}</div>
+      </div>
+    `).join('');
+  }
+ 
+  // ---- Search autosuggest ----
+  const searchInput = document.getElementById('searchInput');
+  const suggestBox = document.getElementById('suggestBox');
+  let searchMatches = [];
+  let searchActiveIndex = -1; // -1 = chưa chọn mục nào bằng mũi tên
+
+  function selectSearchItem(id) {
+    const it = items.find(x => x.id === id);
+    suggestBox.classList.remove('open');
+    searchInput.value = '';
+    searchMatches = [];
+    searchActiveIndex = -1;
+    if (it) copyItemName(it.name);
+    goToCatalogItem(id);
+  }
+
+  function highlightSearchActive() {
+    suggestBox.querySelectorAll('.suggest-item').forEach(el => {
+      el.classList.toggle('active', Number(el.dataset.idx) === searchActiveIndex);
+    });
+    const activeEl = suggestBox.querySelector('.suggest-item.active');
+    if (activeEl) activeEl.scrollIntoView({ block: 'nearest' });
+  }
+
+  function renderSuggestions(query) {
+    const q = query.trim();
+    if (!q) { suggestBox.classList.remove('open'); suggestBox.innerHTML = ''; searchMatches = []; searchActiveIndex = -1; return; }
+    // Tìm theo từng từ (token), mỗi từ có thể nằm ở bất kỳ trường nào
+    // (name/room/item/attribute) và được mở rộng qua từ điển đồng nghĩa Việt-Anh.
+    // Nhờ vậy "đĩa", "nhựa", "đĩa nhựa" hay "plastic plate" đều ra cùng kết quả.
+    searchMatches = LtnSearchMatch.search(items, q);
+    searchActiveIndex = -1; // mỗi lần gõ lại thì chưa chọn sẵn mục nào
+    if (!searchMatches.length) {
+      suggestBox.innerHTML = '<div class="suggest-empty">Không tìm thấy kết quả</div>';
+    } else {
+      suggestBox.innerHTML = searchMatches.map((it, idx) => `
+        <div class="suggest-item" data-id="${it.id}" data-idx="${idx}">
+          <div class="s-left">
+            ${it.picture
+              ? `<img class="s-thumb" src="${escapeHtml(it.picture)}" alt="">`
+              : `<div class="s-thumb empty">🖼️</div>`}
+            <div>
+              <div class="s-name">${escapeHtml(it.name)}</div>
+              <div class="s-meta">${escapeHtml(it.room || '-')} · ${escapeHtml(it.item || '-')} · ${escapeHtml(it.attribute || '-')}</div>
+            </div>
+          </div>
+          <div class="s-meta">#${items.findIndex(x => x.id === it.id) + 1}</div>
+        </div>
+      `).join('');
+      // Giữ nguyên cách chọn bằng click như cũ
+      suggestBox.querySelectorAll('.suggest-item').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          searchActiveIndex = Number(el.dataset.idx);
+          highlightSearchActive();
+        });
+        el.addEventListener('click', () => {
+          selectSearchItem(Number(el.dataset.id));
+        });
+      });
+    }
+    suggestBox.classList.add('open');
+  }
+ 
+  searchInput.addEventListener('input', () => renderSuggestions(searchInput.value));
+  searchInput.addEventListener('focus', () => { if (searchInput.value.trim()) renderSuggestions(searchInput.value); });
+
+  // Thêm: di chuyển bằng mũi tên lên/xuống + chọn bằng Enter (không thay thế cách chọn bằng click cũ)
+  searchInput.addEventListener('keydown', (e) => {
+    if (!suggestBox.classList.contains('open') || !searchMatches.length) return;
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      searchActiveIndex = searchActiveIndex < 0 ? 0 : (searchActiveIndex + 1) % searchMatches.length;
+      highlightSearchActive();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      searchActiveIndex = searchActiveIndex < 0 ? searchMatches.length - 1 : (searchActiveIndex - 1 + searchMatches.length) % searchMatches.length;
+      highlightSearchActive();
+    } else if (e.key === 'Enter') {
+      if (searchActiveIndex >= 0) {
+        // Chỉ chọn khi đã điều hướng bằng mũi tên; nếu chưa thì giữ hành vi cũ (không làm gì thêm)
+        e.preventDefault();
+        selectSearchItem(searchMatches[searchActiveIndex].id);
+      }
+    } else if (e.key === 'Escape') {
+      suggestBox.classList.remove('open');
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.search')) suggestBox.classList.remove('open');
+  });
+
+  // ---- Phím tắt Shift + F: focus nhanh vào ô tìm kiếm ----
+  // Bỏ qua khi người dùng đang gõ trong 1 ô nhập liệu khác, để không phá gõ chữ "F" hoa bình thường.
+  document.addEventListener('keydown', (e) => {
+    if (!e.shiftKey || e.ctrlKey || e.altKey || e.metaKey) return;
+    if ((e.key || '').toLowerCase() !== 'f') return;
+    const t = e.target;
+    const tag = (t && t.tagName || '').toUpperCase();
+    const isEditable = (t && t.isContentEditable) || tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
+    if (isEditable && t !== searchInput) return;
+    e.preventDefault();
+    searchInput.focus();
+    searchInput.select();
+  });
+ 
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
+  }
+
+  // ---- Đồng hồ thực, chạy theo 0.01 giây (hiển thị đến phần trăm giây) ----
+  // Nhấp nháy trong phút cuối cùng trước 12:00 trưa và 17:00 chiều, đến đúng giờ thì tắt nhấp nháy.
+  (function initClock() {
+    const clockEl = document.getElementById('clockWidget');
+    if (!clockEl) return;
+    function pad(n, len) { return String(n).padStart(len, '0'); }
+    let wasBlinking = false;
+    function tick() {
+      const now = new Date();
+      const h = now.getHours();
+      const m = now.getMinutes();
+      const s = now.getSeconds();
+      const hh = pad(h, 2);
+      const mm = pad(m, 2);
+      const ss = pad(s, 2);
+      const cs = pad(Math.floor(now.getMilliseconds() / 10), 2); // phần trăm giây (0.01s)
+      clockEl.innerHTML = `${hh}:${mm}:${ss}<span class="clk-cs">.${cs}</span>`;
+
+      // Phút cuối cùng (11:59 hoặc 16:59) trước khi chạm mốc 12:00 / 17:00
+      const shouldBlink = (h === 11 || h === 16) && m === 59;
+      if (shouldBlink !== wasBlinking) {
+        clockEl.classList.toggle('clk-blink', shouldBlink);
+        wasBlinking = shouldBlink;
+      }
+    }
+    tick();
+    setInterval(tick, 10); // cập nhật mỗi 0.01 giây
+  })();
+
+  // ---- Dự báo thời tiết khu vực đang ngồi (theo vị trí trình duyệt), có nhiệt độ ----
+  (function initWeather() {
+    const iconEl = document.getElementById('weatherIcon');
+    const tempEl = document.getElementById('weatherTemp');
+    const placeEl = document.getElementById('weatherPlace');
+    if (!iconEl || !tempEl) return;
+
+    // Quy đổi mã thời tiết (Open-Meteo WMO code) sang icon + mô tả ngắn
+    function weatherIconFor(code) {
+      if (code === 0) return { icon: '☀️', label: 'Trời quang' };
+      if ([1, 2].includes(code)) return { icon: '🌤️', label: 'Ít mây' };
+      if (code === 3) return { icon: '☁️', label: 'Nhiều mây' };
+      if ([45, 48].includes(code)) return { icon: '🌫️', label: 'Sương mù' };
+      if ([51, 53, 55, 56, 57].includes(code)) return { icon: '🌦️', label: 'Mưa phùn' };
+      if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return { icon: '🌧️', label: 'Mưa' };
+      if ([71, 73, 75, 77, 85, 86].includes(code)) return { icon: '🌨️', label: 'Tuyết' };
+      if ([95, 96, 99].includes(code)) return { icon: '⛈️', label: 'Dông' };
+      return { icon: '⛅', label: '' };
+    }
+
+    async function fetchWeather(lat, lon, placeLabel) {
+      try {
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('weather fetch failed');
+        const data = await res.json();
+        const cw = data && data.current_weather;
+        if (!cw) throw new Error('no current_weather');
+        const info = weatherIconFor(cw.weathercode);
+        iconEl.textContent = info.icon;
+        tempEl.textContent = `${Math.round(cw.temperature)}°C`;
+        if (placeLabel && placeEl) placeEl.textContent = placeLabel;
+      } catch (err) {
+        tempEl.textContent = '--°C';
+      }
+    }
+
+    // Cố lấy tên khu vực (quận/thành phố) từ tọa độ để hiển thị bên cạnh nhiệt độ (không bắt buộc)
+    async function reverseGeocode(lat, lon) {
+      try {
+        const url = `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${lat}&longitude=${lon}&count=1&language=vi`;
+        const res = await fetch(url);
+        if (!res.ok) return '';
+        const data = await res.json();
+        const first = data && data.results && data.results[0];
+        if (!first) return '';
+        return first.name || '';
+      } catch (err) {
+        return '';
+      }
+    }
+
+    function loadForCoords(lat, lon) {
+      fetchWeather(lat, lon);
+      reverseGeocode(lat, lon).then(name => {
+        if (name && placeEl) placeEl.textContent = name;
+      });
+    }
+
+    // Toạ độ dự phòng cuối cùng nếu mọi cách định vị đều thất bại (Hà Nội),
+    // để ô thời tiết luôn có nhiệt độ thay vì đứng yên ở "--°C".
+    const DEFAULT_FALLBACK = { lat: 21.0285, lon: 105.8542, name: 'Hà Nội' };
+
+    function loadByIpFallback() {
+      // Không có quyền định vị GPS -> ước lượng vị trí theo IP (không cần key)
+      fetch('https://ipapi.co/json/')
+        .then(res => res.ok ? res.json() : Promise.reject())
+        .then(data => {
+          if (data && data.latitude && data.longitude) {
+            if (placeEl) placeEl.textContent = data.city || '';
+            fetchWeather(data.latitude, data.longitude);
+          } else {
+            throw new Error('ipapi: no coords');
+          }
+        })
+        .catch(() => {
+          // Provider dự phòng thứ hai
+          fetch('https://ipwho.is/')
+            .then(res => res.ok ? res.json() : Promise.reject())
+            .then(data => {
+              if (data && data.success !== false && data.latitude && data.longitude) {
+                if (placeEl) placeEl.textContent = data.city || '';
+                fetchWeather(data.latitude, data.longitude);
+              } else {
+                throw new Error('ipwho.is: no coords');
+              }
+            })
+            .catch(() => {
+              // Mọi cách định vị đều thất bại -> dùng toạ độ mặc định để vẫn hiện được nhiệt độ
+              if (placeEl) placeEl.textContent = DEFAULT_FALLBACK.name;
+              fetchWeather(DEFAULT_FALLBACK.lat, DEFAULT_FALLBACK.lon);
+            });
+        });
+    }
+
+    function startWeather() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          pos => loadForCoords(pos.coords.latitude, pos.coords.longitude),
+          () => loadByIpFallback(),
+          { timeout: 8000, maximumAge: 10 * 60 * 1000 }
+        );
+      } else {
+        loadByIpFallback();
+      }
+    }
+
+    startWeather();
+    setInterval(startWeather, 15 * 60 * 1000); // làm mới mỗi 15 phút
+  })();
+
+  // ---- Lịch dương & lịch âm (thuật toán chuyển đổi âm lịch Việt Nam) ----
+  (function initDateWidget() {
+    const solarEl = document.getElementById('dwSolar');
+    const lunarEl = document.getElementById('dwLunar');
+    if (!solarEl || !lunarEl) return;
+
+    const TIME_ZONE = 7; // giờ Việt Nam (UTC+7)
+    const WEEKDAYS = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
+    const CAN = ['Giáp', 'Ất', 'Bính', 'Đinh', 'Mậu', 'Kỷ', 'Canh', 'Tân', 'Nhâm', 'Quý'];
+    const CHI = ['Tý', 'Sửu', 'Dần', 'Mão', 'Thìn', 'Tỵ', 'Ngọ', 'Mùi', 'Thân', 'Dậu', 'Tuất', 'Hợi'];
+
+    function jdFromDate(dd, mm, yy) {
+      const a = Math.floor((14 - mm) / 12);
+      const y = yy + 4800 - a;
+      const m = mm + 12 * a - 3;
+      let jd = dd + Math.floor((153 * m + 2) / 5) + 365 * y + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) - 32045;
+      if (jd < 2299161) {
+        jd = dd + Math.floor((153 * m + 2) / 5) + 365 * y + Math.floor(y / 4) - 32083;
+      }
+      return jd;
+    }
+
+    function NewMoon(k) {
+      const T = k / 1236.85;
+      const T2 = T * T;
+      const T3 = T2 * T;
+      const dr = Math.PI / 180;
+      let Jd1 = 2415020.75933 + 29.53058868 * k + 0.0001178 * T2 - 0.000000155 * T3;
+      Jd1 = Jd1 + 0.00033 * Math.sin((166.56 + 132.87 * T - 0.009173 * T2) * dr);
+      const M = 359.2242 + 29.10535608 * k - 0.0000333 * T2 - 0.00000347 * T3;
+      const Mpr = 306.0253 + 385.81691806 * k + 0.0107306 * T2 + 0.00001236 * T3;
+      const F = 21.2964 + 390.67050646 * k - 0.0016528 * T2 - 0.00000239 * T3;
+      let C1 = (0.1734 - 0.000393 * T) * Math.sin(M * dr) + 0.0021 * Math.sin(2 * dr * M);
+      C1 = C1 - 0.4068 * Math.sin(Mpr * dr) + 0.0161 * Math.sin(dr * 2 * Mpr);
+      C1 = C1 - 0.0004 * Math.sin(dr * 3 * Mpr);
+      C1 = C1 + 0.0104 * Math.sin(dr * 2 * F) - 0.0051 * Math.sin(dr * (M + Mpr));
+      C1 = C1 - 0.0074 * Math.sin(dr * (M - Mpr)) + 0.0004 * Math.sin(dr * (2 * F + M));
+      C1 = C1 - 0.0004 * Math.sin(dr * (2 * F - M)) - 0.0006 * Math.sin(dr * (2 * F + Mpr));
+      C1 = C1 + 0.0010 * Math.sin(dr * (2 * F - Mpr)) + 0.0005 * Math.sin(dr * (2 * Mpr + M));
+      let deltat;
+      if (T < -11) {
+        deltat = 0.001 + 0.000839 * T + 0.0002261 * T2 - 0.00000845 * T3 - 0.000000081 * T * T3;
+      } else {
+        deltat = -0.000278 + 0.000265 * T + 0.000262 * T2;
+      }
+      return Jd1 + C1 - deltat;
+    }
+
+    function SunLongitude(jdn) {
+      const T = (jdn - 2451545.0) / 36525;
+      const T2 = T * T;
+      const dr = Math.PI / 180;
+      const M = 357.52910 + 35999.05030 * T - 0.0001559 * T2 - 0.00000048 * T * T2;
+      const L0 = 280.46645 + 36000.76983 * T + 0.0003032 * T2;
+      let DL = (1.914600 - 0.004817 * T - 0.000014 * T2) * Math.sin(dr * M);
+      DL = DL + (0.019993 - 0.000101 * T) * Math.sin(dr * 2 * M) + 0.000290 * Math.sin(dr * 3 * M);
+      let L = (L0 + DL) * dr;
+      L = L - Math.PI * 2 * Math.floor(L / (Math.PI * 2));
+      return L;
+    }
+
+    function getSunLongitude(dayNumber, timeZone) {
+      return Math.floor(SunLongitude(dayNumber - 0.5 - timeZone / 24) / Math.PI * 6);
+    }
+    function getNewMoonDay(k, timeZone) {
+      return Math.floor(NewMoon(k) + 0.5 + timeZone / 24);
+    }
+    function getLunarMonth11(yy, timeZone) {
+      const off = jdFromDate(31, 12, yy) - 2415021;
+      const k = Math.floor(off / 29.530588853);
+      let nm = getNewMoonDay(k, timeZone);
+      const sunLong = getSunLongitude(nm, timeZone);
+      if (sunLong >= 9) nm = getNewMoonDay(k - 1, timeZone);
+      return nm;
+    }
+    function getLeapMonthOffset(a11, timeZone) {
+      const k = Math.floor((a11 - 2415021.076998695) / 29.530588853 + 0.5);
+      let last = 0, i = 1;
+      let arc = getSunLongitude(getNewMoonDay(k + i, timeZone), timeZone);
+      do {
+        last = arc;
+        i++;
+        arc = getSunLongitude(getNewMoonDay(k + i, timeZone), timeZone);
+      } while (arc != last && i < 14);
+      return i - 1;
+    }
+
+    function convertSolar2Lunar(dd, mm, yy, timeZone) {
+      const dayNumber = jdFromDate(dd, mm, yy);
+      const k = Math.floor((dayNumber - 2415021.076998695) / 29.530588853);
+      let monthStart = getNewMoonDay(k + 1, timeZone);
+      if (monthStart > dayNumber) monthStart = getNewMoonDay(k, timeZone);
+      let a11 = getLunarMonth11(yy, timeZone);
+      let b11 = a11;
+      let lunarYear;
+      if (a11 >= monthStart) {
+        lunarYear = yy;
+        a11 = getLunarMonth11(yy - 1, timeZone);
+      } else {
+        lunarYear = yy + 1;
+        b11 = getLunarMonth11(yy + 1, timeZone);
+      }
+      const lunarDay = dayNumber - monthStart + 1;
+      const diff = Math.floor((monthStart - a11) / 29);
+      let lunarLeap = 0;
+      let lunarMonth = diff + 11;
+      if (b11 - a11 > 365) {
+        const leapMonthDiff = getLeapMonthOffset(a11, timeZone);
+        if (diff >= leapMonthDiff) {
+          lunarMonth = diff + 10;
+          if (diff === leapMonthDiff) lunarLeap = 1;
+        }
+      }
+      if (lunarMonth > 12) lunarMonth -= 12;
+      if (lunarMonth >= 11 && diff < 4) lunarYear -= 1;
+      return [lunarDay, lunarMonth, lunarYear, lunarLeap];
+    }
+
+    function canChi(year) {
+      const can = ((year - 4) % 10 + 10) % 10;
+      const chi = ((year - 4) % 12 + 12) % 12;
+      return CAN[can] + ' ' + CHI[chi];
+    }
+
+    function render() {
+      const now = new Date();
+      const dd = now.getDate(), mm = now.getMonth() + 1, yy = now.getFullYear();
+      const weekday = WEEKDAYS[now.getDay()];
+      solarEl.textContent = `${weekday}, ${String(dd).padStart(2, '0')}/${String(mm).padStart(2, '0')}/${yy}`;
+      try {
+        const [ld, lm, ly, leap] = convertSolar2Lunar(dd, mm, yy, TIME_ZONE);
+        lunarEl.textContent = `Âm lịch: ${ld}/${lm}${leap ? ' (nhuận)' : ''} - ${canChi(ly)}`;
+      } catch (err) {
+        lunarEl.textContent = 'Âm lịch: —';
+      }
+    }
+
+    render();
+    // Cập nhật lại mỗi phút để tự chuyển ngày đúng lúc nửa đêm
+    setInterval(render, 60 * 1000);
+  })();
+ 
+  // ---- One-time migration: move already-saved base64 pictures (old rows)
+  // to the Storage bucket, replacing the `picture` column with a URL. ----
+  const migrateBtn = document.getElementById('migratePicturesBtn');
+  if (migrateBtn) {
+    migrateBtn.addEventListener('click', async () => {
+      if (!hasSyncedStorage()) { alert('Chưa kết nối Supabase, không thể di dời.'); return; }
+      const toMigrate = items.filter(it => it.picture && it.picture.startsWith('data:'));
+      if (!toMigrate.length) { alert('Không có ảnh base64 nào cần di dời — mọi thứ đã gọn rồi.'); return; }
+      const ok = confirm(`Sẽ di dời ${toMigrate.length} ảnh sang Supabase Storage. Việc này chỉ cần làm 1 lần. Tiếp tục?`);
+      if (!ok) return;
+
+      migrateBtn.disabled = true;
+      let done = 0, failed = 0;
+      for (const it of toMigrate) {
+        migrateBtn.textContent = `Đang di dời... (${done + failed}/${toMigrate.length})`;
+        try {
+          const url = await uploadPictureIfNeeded(it.id, it.picture);
+          it.picture = url;
+          const { error } = await supabaseClient
+            .from('ltn_items')
+            .update({ picture: url })
+            .eq('id', it.id);
+          if (error) throw error;
+          done++;
+        } catch (err) {
+          console.error('Migrate error for id', it.id, err);
+          failed++;
+        }
+      }
+      saveToLocalStorage();
+      migrateBtn.disabled = false;
+      migrateBtn.textContent = 'Di dời ảnh cũ lên Storage';
+      renderRecent(); renderCatalog(); renderHistory();
+      alert(`Xong. Đã di dời: ${done}. Lỗi: ${failed}.` + (failed ? '\nXem Console (F12) để biết chi tiết lỗi.' : ''));
+    });
+  }
+
+  // Initial load + render (data is fetched from synced storage first)
+  async function startApp() {
+    loadTrashFromLocalStorage();
+    purgeExpiredTrash();
+    updateTrashBadge();
+    // Kiểm tra định kỳ để tự động dọn các mục trong thùng rác đã quá 1 tuần
+    setInterval(() => { purgeExpiredTrash(); updateTrashBadge(); if (views.trash.classList.contains('active')) renderTrash(); }, 60 * 60 * 1000);
+
+    await loadData();
+    renderRecent();
+    renderCatalog();
+    renderHistory();
+    refreshAllDatalists();
+    updateCopyPreview();
+    document.getElementById('countBadge').textContent = items.length + ' bản ghi';
+  }
+
+  // ---- Login gate ----
+  const LOGIN_EMAIL = 'thanhnghia1280@gmail.com';
+  const LOGIN_PASSWORD = 'Liuchengyi2812';
+  const LOGIN_STORAGE_KEY = 'ltn_logged_in';
+  const loginOverlay = document.getElementById('loginOverlay');
+  const appRoot = document.getElementById('appRoot');
+  const loginForm = document.getElementById('loginForm');
+  const loginError = document.getElementById('loginError');
+  const loginLogoImg = document.getElementById('loginLogoImg');
+  const favicon = document.getElementById('appFavicon');
+  if (favicon) loginLogoImg.src = favicon.href;
+
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPassword').value;
+    if (email === LOGIN_EMAIL && password === LOGIN_PASSWORD) {
+      loginError.textContent = '';
+      sessionStorage.setItem(LOGIN_STORAGE_KEY, '1');
+      loginOverlay.classList.add('hidden');
+      appRoot.classList.remove('hidden');
+      startApp();
+    } else {
+      loginError.textContent = 'Sai tài khoản hoặc mật khẩu.';
+    }
+  });
+
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    sessionStorage.removeItem(LOGIN_STORAGE_KEY);
+    location.reload();
+  });
+
+  if (sessionStorage.getItem(LOGIN_STORAGE_KEY) === '1') {
+    loginOverlay.classList.add('hidden');
+    appRoot.classList.remove('hidden');
+    startApp();
+  }
+</script>
+</body>
+</html>
